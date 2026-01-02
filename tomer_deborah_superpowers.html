@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tomer Devora Superpoderes</title>
+    <meta
+      name="description"
+      content="Guia expandida del Tomer Devora con un enfoque de superpoderes espirituales, bitacoras, misiones y recursos imprimibles y digitales."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Heebo:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-size: 16px;
+        --bg: #0d0f1c;
+        --bg-soft: #14172a;
+        --ink: #f6f8ff;
+        --ink-soft: rgba(246, 248, 255, 0.76);
+        --accent: #6fd3ff;
+        --accent-strong: #4dccea;
+        --purple: #a781ff;
+        --gold: #ffcb6b;
+        --danger: #ff6f91;
+        --success: #37f6af;
+        --panel: rgba(23, 28, 52, 0.85);
+        --panel-strong: rgba(28, 36, 78, 0.95);
+        --border: rgba(111, 211, 255, 0.28);
+        --shadow: 0 24px 46px rgba(0, 0, 0, 0.45);
+        scroll-behavior: smooth;
+      }
+
+      @media print {
+        :root {
+          color-scheme: only light;
+          --bg: #ffffff;
+          --bg-soft: #f5f5fd;
+          --ink: #15151f;
+          --ink-soft: rgba(32, 32, 48, 0.78);
+          --accent: #2454ff;
+          --accent-strong: #1b3ed9;
+          --purple: #6437c4;
+          --gold: #c58e32;
+          --danger: #d13f6f;
+          --success: #1d9968;
+          --panel: rgba(255, 255, 255, 0.9);
+          --panel-strong: rgba(243, 243, 255, 0.96);
+          --border: rgba(27, 62, 217, 0.28);
+          --shadow: none;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: radial-gradient(circle at top left, rgba(79, 36, 182, 0.4), transparent 40%),
+          radial-gradient(circle at bottom right, rgba(24, 122, 195, 0.35), transparent 45%), var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus-visible {
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: clamp(2rem, 4vw, 3rem);
+        display: grid;
+        gap: clamp(2.4rem, 4vw, 3.4rem);
+      }
+
+      .hero {
+        display: grid;
+        gap: clamp(1.8rem, 3vw, 2.6rem);
+        background: linear-gradient(135deg, rgba(20, 26, 52, 0.9), rgba(12, 40, 82, 0.85));
+        border-radius: 34px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: clamp(2.6rem, 5vw, 4rem);
+      }
+
+      .hero__title {
+        font-family: "Playfair Display", "Times New Roman", serif;
+        font-size: clamp(2.6rem, 4.8vw, 3.8rem);
+        line-height: 1.1;
+        letter-spacing: 0.05em;
+        margin: 0;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+
+      .hero__subtitle {
+        margin: 0;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: var(--ink-soft);
+        max-width: 70ch;
+      }
+
+      .hero__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .chip {
+        padding: 0.45rem 0.85rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(111, 211, 255, 0.12);
+        color: var(--accent);
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .hero__cta {
+        display: grid;
+        gap: 0.85rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 18px;
+        border: 1px solid rgba(79, 198, 255, 0.4);
+        background: rgba(79, 198, 255, 0.14);
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .button--primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        color: #011018;
+        border-color: transparent;
+      }
+
+      .panel-grid {
+        display: grid;
+        gap: clamp(1.8rem, 3vw, 2.6rem);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .panel {
+        background: var(--panel);
+        border-radius: 24px;
+        padding: clamp(1.8rem, 3vw, 2.5rem);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 1rem;
+      }
+
+      .panel h2,
+      .panel h3 {
+        font-family: "Playfair Display", serif;
+        margin: 0;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .panel h2 {
+        font-size: 1.65rem;
+      }
+
+      .panel h3 {
+        font-size: 1.22rem;
+      }
+
+      .super-grid {
+        display: grid;
+        gap: clamp(1.6rem, 2.8vw, 2.4rem);
+      }
+
+      .super-card {
+        background: var(--panel-strong);
+        border-radius: 22px;
+        padding: clamp(1.6rem, 3vw, 2.2rem);
+        border: 1px solid rgba(111, 211, 255, 0.22);
+        display: grid;
+        gap: 1rem;
+      }
+
+      .super-card header {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .super-card header .tag {
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .super-card header h3 {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: 1.7rem;
+        letter-spacing: 0.06em;
+      }
+
+      .super-card header .hebrew {
+        font-family: "Heebo", sans-serif;
+        font-size: 1.15rem;
+        direction: rtl;
+        text-align: right;
+        color: var(--accent);
+      }
+
+      .info-line {
+        margin: 0;
+        font-size: 0.93rem;
+        color: var(--ink-soft);
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .info-line strong {
+        color: var(--accent);
+        letter-spacing: 0.02em;
+      }
+
+      .mission-grid {
+        display: grid;
+        gap: 0.6rem;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+
+      .mission {
+        background: rgba(255, 203, 107, 0.12);
+        border: 1px solid rgba(255, 203, 107, 0.28);
+        border-radius: 16px;
+        padding: 0.75rem 0.85rem;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+      }
+
+      .mission strong {
+        display: block;
+        margin-bottom: 0.35rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        font-size: 0.72rem;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 1rem;
+        position: relative;
+        padding-left: 1.8rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0.7rem;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(79, 198, 255, 0.4), rgba(79, 198, 255, 0));
+      }
+
+      .timeline__item {
+        background: var(--panel);
+        border-radius: 16px;
+        padding: 0.95rem 1.1rem;
+        border: 1px solid rgba(111, 211, 255, 0.18);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+        position: relative;
+      }
+
+      .timeline__item::before {
+        content: attr(data-step);
+        position: absolute;
+        left: -1.65rem;
+        top: 1rem;
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        color: #000820;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .timeline__item strong {
+        display: block;
+        margin-bottom: 0.35rem;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+      }
+
+      .resources-grid {
+        display: grid;
+        gap: 1.6rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .resource {
+        background: var(--panel);
+        border-radius: 18px;
+        padding: 1.2rem 1.4rem;
+        border: 1px solid rgba(79, 198, 255, 0.24);
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .resource strong {
+        font-size: 0.92rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .bitacora {
+        display: grid;
+        gap: 0.85rem;
+        background: var(--panel-strong);
+        border-radius: 24px;
+        padding: 2rem;
+        border: 1px solid rgba(79, 198, 255, 0.24);
+      }
+
+      .bitacora h2 {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+
+      .bitacora table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+
+      .bitacora th,
+      .bitacora td {
+        border: 1px solid rgba(111, 211, 255, 0.22);
+        padding: 0.6rem 0.7rem;
+        text-align: left;
+        color: var(--ink-soft);
+      }
+
+      .bitacora th {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.78rem;
+        color: var(--accent);
+        background: rgba(79, 198, 255, 0.12);
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 0.84rem;
+        color: rgba(246, 248, 255, 0.6);
+        padding-bottom: 3rem;
+      }
+
+      @media (max-width: 720px) {
+        .hero__cta {
+          grid-template-columns: 1fr;
+        }
+
+        .panel {
+          padding: 1.5rem;
+        }
+
+        .bitacora table {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="chip">Tomer Devora 3.0</p>
+        <h1 class="hero__title">Superpoderes de Misericordia</h1>
+        <p class="hero__subtitle">
+          Un viaje de trece dias para encender los superpoderes espirituales que Rabi Moshe Cordovero revela en el
+          Tomer Devora. Cada mida se convierte en una habilidad concreta que puedes entrenar como heroe cotidiano en
+          tu hogar, trabajo y comunidad.
+        </p>
+        <div class="hero__meta">
+          <span class="chip">Impulso diario</span>
+          <span class="chip">Bitacora editable</span>
+          <span class="chip">Misiones multiplataforma</span>
+          <span class="chip">Guia de audio (proximamente)</span>
+        </div>
+        <div class="hero__cta">
+          <a class="button button--primary" href="#midot">Explorar superpoderes</a>
+          <a class="button" href="#bitacora">Descargar bitacora imprimible</a>
+          <a class="button" href="#misiones">Plan de misiones</a>
+        </div>
+      </section>
+
+      <section class="panel-grid" aria-labelledby="overview-title">
+        <article class="panel">
+          <h2 id="overview-title">Mapa de la travesia</h2>
+          <p>
+            Tres capas sincronizadas: 1) Contempla como HaShem despliega cada mida contigo, 2) Activala como superpoder
+            personal entrenando tus habitos, 3) Expandela hacia los demas con misiones concretas.
+          </p>
+          <ul>
+            <li>Lectura diaria con hebreo, transliteracion y vision Ramak.</li>
+            <li>Misiones multiplataforma: hogar, trabajo y entornos sociales.</li>
+            <li>Bitacora gamer: registra logros, desbloquea recompensas, planifica siguientes pasos.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h2>Como usar esta edicion</h2>
+          <p>
+            Dedica 20 minutos diarios: 5 para la lectura, 10 para la mision, 5 para la bitacora. Cada cuarto dia haz la
+            seccion "Respiracion y foco" para recalibrar tu energia.
+          </p>
+          <p>
+            Repite el ciclo cuatro veces al ano, ajustando las misiones para nuevos contextos. Al final de cada vuelta,
+            revisa la tabla de desbloqueos y reconoce tu progreso.
+          </p>
+        </article>
+        <article class="panel">
+          <h2>Equipamiento sugerido</h2>
+          <ul>
+            <li>Sidur y Tomer Devora (impreso o digital).</li>
+            <li>Cuaderno o app de notas que ames usar.</li>
+            <li>Timer de 13 minutos para misiones flash.</li>
+            <li>Dialogos semanales con tu jabruta o pareja.</li>
+            <li>Playlist calmada para respiraciones breves.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="midot" class="super-grid" aria-labelledby="midot-title">
+        <header>
+          <h2 class="hero__subtitle" id="midot-title">Los trece superpoderes</h2>
+        </header>
+
+        <article class="super-card" id="midah-1">
+          <header>
+            <span class="tag">Superpoder 01</span>
+            <h3>Mi El Kamoka</h3>
+            <p class="hebrew">מִי־אֵל כָּמוֹךָ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> se deja ofender y sigue sosteniendo tu vida mientras espera tu regreso.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> contencion heroica: eliges la calma antes que la reaccion impulsiva.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Respira cuatro tiempos y responde con una frase amable en vez de corregir.</div>
+            <div class="mission"><strong>Guardian</strong> Envia un mensaje agradeciendo un esfuerzo anterior antes de abordar el conflicto.</div>
+            <div class="mission"><strong>Maestro</strong> Trabaja con esa persona en un objetivo comun y celebra su aporte.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-2">
+          <header>
+            <span class="tag">Superpoder 02</span>
+            <h3>Nose Avon</h3>
+            <p class="hebrew">נֹשֵׂא עָוֹן</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> sostiene al malaj danador y te da margen para rectificar.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> paciencia activa: mantienes abierta la puerta para el reencuentro.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Di "cuando estes listo hablamos" sin tono ironico.</div>
+            <div class="mission"><strong>Guardian</strong> Propon una agenda breve con temas a sanar y fechas posibles.</div>
+            <div class="mission"><strong>Maestro</strong> Acompana al otro en su plan de teshuva con recursos y apoyo.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-3">
+          <header>
+            <span class="tag">Superpoder 03</span>
+            <h3>Ve'over Al Pesha</h3>
+            <p class="hebrew">וְעוֹבֵר עַל־פֶּשַׁע</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> limpia personalmente la mancha y te pide no reincidir.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> puentes adelantados: tomas la iniciativa para restaurar la relacion.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Invita a un cafe o llamada sin reclamos para escuchar el presente.</div>
+            <div class="mission"><strong>Guardian</strong> Disena un plan de tres pasos para reconstruir confianza.</div>
+            <div class="mission"><strong>Maestro</strong> Crea un ritual de reconciliacion que honre el aprendizaje.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-4">
+          <header>
+            <span class="tag">Superpoder 04</span>
+            <h3>Lish'erit Najalato</h3>
+            <p class="hebrew">לִשְׁאֵרִית נַחֲלָתוֹ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> siente tu dolor como propio porque eres parte de Su heredad.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> empatia total: reconoces que el otro comparte tu misma chispa.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Antes de una conversacion tensa, di en voz baja "somos familia de alma".</div>
+            <div class="mission"><strong>Guardian</strong> Haz un favor silencioso por quien se distancio.</div>
+            <div class="mission"><strong>Maestro</strong> Crea una tradicion semanal de agradecimiento mutuo.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-5">
+          <header>
+            <span class="tag">Superpoder 05</span>
+            <h3>Lo Hejezik La'ad Apo</h3>
+            <p class="hebrew">לֹא־הֶחֱזִיק לָעַד אַפּוֹ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> enfria Su enojo y te permite seguir adelante.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> reset emocional: eliges soltar la ira para que sane el vinculo.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Usa un temporizador de 90 segundos antes de contestar molesto.</div>
+            <div class="mission"><strong>Guardian</strong> Escribe lo que duele y rompe la hoja diciendo "HaShem, lo soltamos juntos".</div>
+            <div class="mission"><strong>Maestro</strong> Convierte el enojo en ayuda: haz jesed en honor a la persona que fallo.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-6">
+          <header>
+            <span class="tag">Superpoder 06</span>
+            <h3>Ki Jafetz Jesed</h3>
+            <p class="hebrew">כִּי־חָפֵץ חֶסֶד הוּא</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> se deleita en tus actos de jesed y los usa como defensores.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> amplificador de bondad: haces sonar fuerte la memoria del bien.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Guarda tres gestos nobles diarios en un registro de gratitud.</div>
+            <div class="mission"><strong>Guardian</strong> Dedica un mensaje reconociendo un jesed concreto.</div>
+            <div class="mission"><strong>Maestro</strong> Inspira una cadena de favores que pueda crecer con otros.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-7">
+          <header>
+            <span class="tag">Superpoder 07</span>
+            <h3>Yashuv Yerajamenu</h3>
+            <p class="hebrew">יָשׁוּב יְרַחֲמֵנוּ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> te abraza con misericordia multiplicada cuando haces teshuva.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> alegria reparadora: festejas la valentia del que regresa.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Agradece en persona la disculpa recibida y dice "gracias por volver".</div>
+            <div class="mission"><strong>Guardian</strong> Celebra la reconciliacion con un detalle especial.</div>
+            <div class="mission"><strong>Maestro</strong> Ayuda al otro a disenar su siguiente paso de crecimiento.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-8">
+          <header>
+            <span class="tag">Superpoder 08</span>
+            <h3>Yijbosh Avonotenu</h3>
+            <p class="hebrew">יִכְבֹּשׁ עֲוֹנֹתֵינוּ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> subyuga tus faltas y pone tus meritos arriba.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> curador de narrativas: haces que la bondad sea la historia principal.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Anota dos virtudes del otro antes de tocar un tema dificil.</div>
+            <div class="mission"><strong>Guardian</strong> Comparte con otros algo luminoso de esa persona.</div>
+            <div class="mission"><strong>Maestro</strong> Crea un mural de gratitud con fotos y mensajes positivos.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-9">
+          <header>
+            <span class="tag">Superpoder 09</span>
+            <h3>Vetashlij Bemetzulot Yam</h3>
+            <p class="hebrew">וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> arroja las faltas al mar profundo y no se regodea con el castigo.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> compasion justa: sueltas la revancha y pides correccion para el otro.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Reza una frase breve por quien atraviesa consecuencias duras.</div>
+            <div class="mission"><strong>Guardian</strong> Ofrecele ayuda practica (contacto, recurso, tiempo).</div>
+            <div class="mission"><strong>Maestro</strong> Lidera un acto de tzedaka en su honor para transformar la energia negativa.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-10">
+          <header>
+            <span class="tag">Superpoder 10</span>
+            <h3>Titen Emet LeYaakov</h3>
+            <p class="hebrew">תִּתֵּן אֱמֶת לְיַעֲקֹב</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> te muestra la verdad y permanece a tu lado durante el ajuste.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> verdad leal: dices la verdad con un plan de acompanamiento.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Escribe los hechos antes de hablar y subraya que parte no conoces.</div>
+            <div class="mission"><strong>Guardian</strong> Corrige en privado ofreciendo ayuda concreta para mejorar.</div>
+            <div class="mission"><strong>Maestro</strong> Disena junto a esa persona un plan de seguimiento y revisalo cada semana.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-11">
+          <header>
+            <span class="tag">Superpoder 11</span>
+            <h3>Jesed LeAvraham</h3>
+            <p class="hebrew">חֶסֶד לְאַבְרָהָם</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> agrega misericordia siguiendo la senda de Abraham Avinu.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> bondad radical: respondes con jesed incluso cuando podrias ser duro.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Haz algo generoso por alguien con quien tengas friccion.</div>
+            <div class="mission"><strong>Guardian</strong> Paga una deuda emocional o material que el otro no espera.</div>
+            <div class="mission"><strong>Maestro</strong> Inicia un proyecto de jesed inspirado en Abraham e invita a otros.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-12">
+          <header>
+            <span class="tag">Superpoder 12</span>
+            <h3>Asher Nishbata</h3>
+            <p class="hebrew">אֲשֶׁר נִשְׁבַּעְתָּ</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> recuerda los meritos ancestrales y te sostiene aunque falten meritos personales.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> honor ancestral: respetas la historia del otro y la traes a la mesa cuando hay tension.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Incluye su nombre completo con padres en tu tefila personal.</div>
+            <div class="mission"><strong>Guardian</strong> Agradece a sus padres o maestros por lo que sembraron en esa persona.</div>
+            <div class="mission"><strong>Maestro</strong> Convoca una reunion para honrar historias familiares inspiradoras.</div>
+          </div>
+        </article>
+
+        <article class="super-card" id="midah-13">
+          <header>
+            <span class="tag">Superpoder 13</span>
+            <h3>Mimei Kedem</h3>
+            <p class="hebrew">מִימֵי קֶדֶם</p>
+          </header>
+          <p class="info-line"><strong>HaShem contigo:</strong> rescata tus acciones buenas antiguas y las usa como salvavidas.</p>
+          <p class="info-line"><strong>Superhabilidad humana:</strong> memoria luminosa: traes al presente gestos nobles del otro y los usas como faro.</p>
+          <div class="mission-grid">
+            <div class="mission"><strong>Rookie</strong> Agradece cada noche tres bondades pasadas.</div>
+            <div class="mission"><strong>Guardian</strong> Narra en una carta una anecdotas positiva de los primeros anos del otro.</div>
+            <div class="mission"><strong>Maestro</strong> Crea un album o video con recuerdos buenos y entregalo en un momento de tension.</div>
+          </div>
+        </article>
+      </section>
+
+      <section id="misiones" class="panel" aria-labelledby="misiones-title">
+        <h2 id="misiones-title">Plan de misiones 13x13</h2>
+        <p>
+          Ejecuta una mision diaria siguiendo este ciclo. Cada bloque dura 13 minutos y se complementa con una practica
+          de respiracion o visualizacion indicada. Al completar las trece, repite la vuelta con nuevos contextos.
+        </p>
+        <div class="timeline">
+          <div class="timeline__item" data-step="01">
+            <strong>Lectura heroica</strong>
+            Lee el pasuk en hebreo, transliteracion y espanol. Imagina a HaShem actuando contigo exactamente asi hoy.
+          </div>
+          <div class="timeline__item" data-step="02">
+            <strong>Respiracion foco</strong>
+            Inhala 4 tiempos, sosten 4, exhala 6 mientras repites el nombre de la mida. Visualiza el color asociado
+            (consulta la paleta al final).
+          </div>
+          <div class="timeline__item" data-step="03">
+            <strong>Misiones escaladas</strong>
+            Elige el nivel Rookie si estas empezando, Guardian si ya tienes practica, Maestro si llevas tiempo
+            entrenando.
+          </div>
+          <div class="timeline__item" data-step="04">
+            <strong>Bitacora express</strong>
+            Registra en la tabla que hiciste, que aprendiste y que quieres intentar manana.
+          </div>
+          <div class="timeline__item" data-step="05">
+            <strong>Checkpoint semanal</strong>
+            Cada cuarto dia evalua como cambio tu tono, energia y relaciones. Ajusta misiones para la siguiente vuelta.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-grid" aria-labelledby="resources-title">
+        <article class="panel" id="resources-title">
+          <h2>Recursos complementarios</h2>
+          <p>Escoge la modalidad que mejor se adapte a tu rutina y comparte este material con tus aliados de estudio.</p>
+          <ul>
+            <li>Audio diario de respiracion y lectura (formato MP3/Spotify). Inserta tus propios audios via QR.</li>
+            <li>Plantilla Notion/Trello para seguimiento de misiones y recordatorios automaticos.</li>
+            <li>Cartas imprimibles con los versiculos para colocar en el refrigerador o escritorio.</li>
+            <li>Checklist de habitos semanales inspirado en cada mida.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h2>Paleta de energia</h2>
+          <div class="resources-grid">
+            <div class="resource">
+              <strong>Azul Prisma</strong>
+              Paciencia, contencion, escucha profunda. Usalo para Mi El Kamoka, Nose Avon.
+            </div>
+            <div class="resource">
+              <strong>Dorado Orbit</strong>
+              Memoria del bien, gratitud expansiva. Ideal para Ki Jafetz Jesed, Yijbosh Avonotenu.
+            </div>
+            <div class="resource">
+              <strong>Purpura Nebula</strong>
+              Teshuva, abrazo renovador. Aplica a Yashuv Yerajamenu y Vetashlij.
+            </div>
+            <div class="resource">
+              <strong>Verde Aurora</strong>
+              Jesed radical y crecimiento. Asocia a Jesed LeAvraham, Asher Nishbata.
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>Checklist de desbloqueos</h2>
+          <ul>
+            <li>3 vueltas completas: comparte testimonio con tu grupo.</li>
+            <li>6 vueltas: guia una sesion de estudio para nuevos participantes.</li>
+            <li>10 vueltas: crea tus propias misiones y compartelas con la comunidad.</li>
+            <li>13 vueltas: disena un proyecto social inspirado en las midot.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="bitacora" class="bitacora" aria-labelledby="bitacora-title">
+        <h2 id="bitacora-title">Bitacora 13x13 (imprimible y editable)</h2>
+        <p>
+          Imprime esta tabla o duplicala en tu herramienta digital favorita. Usa una fila por dia. En la columna
+          "Power-Up" escribe el nivel de mision completada (R, G, M). En "Siguiente intento" deja una accion especifica.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Dia</th>
+              <th>Mida / Pasuk</th>
+              <th>Escena vivida</th>
+              <th>Power-Up</th>
+              <th>Aprendizaje</th>
+              <th>Siguiente intento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mi El Kamoka</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Nose Avon</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Ve'over Al Pesha</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Lish'erit Najalato</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Lo Hejezik</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Ki Jafetz</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Yashuv Yerajamenu</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Yijbosh Avonotenu</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Vetashlij</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Titen Emet</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Jesed LeAvraham</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Asher Nishbata</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Mimei Kedem</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="panel-grid">
+        <article class="panel panel-deep">
+          <h2>Respiraciones y visualizaciones</h2>
+          <div class="deep-section">
+            <h3>4-4-6 calm</h3>
+            <p>Inhala 4, sosten 4, exhala 6 mientras imaginas un halo azul. Ideal para contencion y paciencia.</p>
+          </div>
+          <div class="deep-section">
+            <h3>5-2-7 gratitude</h3>
+            <p>Inhala 5, sosten 2, exhala 7 visualizando destellos dorados. Refuerza memoria del bien.</p>
+          </div>
+          <div class="deep-section">
+            <h3>3-3-3 reset</h3>
+            <p>Inhala, sosten y exhala en 3 tiempos. Usa la exhalacion para soltar tensiones antes de dialogar.</p>
+          </div>
+        </article>
+        <article class="panel panel-deep">
+          <h2>Preguntas para compartir</h2>
+          <div class="deep-section">
+            <h3>Ronda 1</h3>
+            <p>Que mida se sintio natural esta semana? Cual te desafio? Menciona un acto de jesed recibido.</p>
+          </div>
+          <div class="deep-section">
+            <h3>Ronda 2</h3>
+            <p>Cuenta una escena donde viste a HaShem sostenerte cuando fallaste. Como puedes replicarlo manana?</p>
+          </div>
+          <div class="deep-section">
+            <h3>Ronda 3</h3>
+            <p>Elige a un "heroe cotidiano" en tu entorno y describe que mida representa. Planea como imitarlo.</p>
+          </div>
+        </article>
+      </div>
+
+      <footer class="footer">
+        Tomer Devora Superpoderes - Edicion 5785 - Disenado por Abraham Bentolila y Joe Sitt - Comparte citando la
+        fuente original.
+      </footer>

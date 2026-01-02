@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tomer Devorá -  Tríptico de bolsillo</title>
+    <meta
+      name="description"
+      content="Tríptico imprimible en carta apaisada con las trece midot del Tomer Devorá, instrucciones de práctica diaria y citas clave en hebreo."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Heebo:wght@500&family=Work+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: only light;
+        font-size: 16px;
+        --bg: #f8f3ea;
+        --panel: rgba(255, 255, 255, 0.96);
+        --ink: #231a0f;
+        --muted: #615546;
+        --accent: #2f3c88;
+        --accent-soft: rgba(47, 60, 136, 0.1);
+        --gold: #bd8c3b;
+        --border: rgba(47, 60, 136, 0.28);
+      }
+
+      @page {
+        size: letter landscape;
+        margin: 0.45in;
+      }
+
+      @media print {
+        body {
+          margin: 0;
+          background: none;
+        }
+        .fold-guides::before {
+          opacity: 0.45;
+        }
+        .screen-note {
+          display: none !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        padding: 1.2rem;
+        display: grid;
+        gap: 1.4rem;
+      }
+
+      .spread {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4in;
+        min-height: 8in;
+        padding: 0.1in;
+      }
+
+      .fold-guides::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          to right,
+          transparent,
+          transparent calc((100% - 0.8in) / 3 - 0.01in),
+          rgba(189, 140, 59, 0.35) calc((100% - 0.8in) / 3 - 0.01in),
+          rgba(189, 140, 59, 0.35) calc((100% - 0.8in) / 3 + 0.01in)
+        );
+        pointer-events: none;
+        mix-blend-mode: multiply;
+        opacity: 0.15;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 0.55in 0.42in;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25in;
+        position: relative;
+        box-shadow: 0 18px 38px rgba(35, 26, 15, 0.11);
+      }
+
+      .panel::after {
+        content: attr(data-panel);
+        position: absolute;
+        top: 0.35in;
+        right: 0.35in;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: rgba(35, 26, 15, 0.45);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "EB Garamond", serif;
+        margin: 0;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+      }
+
+      h1 {
+        font-size: 2.45rem;
+        line-height: 1.05;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+        line-height: 1.1;
+      }
+
+      h3 {
+        font-size: 1.22rem;
+      }
+
+      p,
+      ul {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+
+      ul {
+        padding-left: 0.9em;
+        display: grid;
+        gap: 0.1in;
+      }
+
+      ul li {
+        padding-left: 0.1em;
+      }
+
+      .tag {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        margin-bottom: 0.12in;
+      }
+
+      .hebrew {
+        direction: rtl;
+        text-align: right;
+        font-family: "Heebo", sans-serif;
+        font-size: 1.2rem;
+        color: var(--gold);
+      }
+
+      .midot-grid {
+        display: grid;
+        gap: 0.18in;
+      }
+
+      .midah {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        border-radius: 14px;
+        padding: 0.28in 0.3in;
+        display: grid;
+        gap: 0.12in;
+      }
+
+      .midah-head {
+        display: grid;
+        gap: 0.05in;
+      }
+
+      .midah-head em {
+        font-family: "EB Garamond", serif;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--gold);
+      }
+
+      .midah-head strong {
+        font-family: "Heebo", sans-serif;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        font-size: 1rem;
+      }
+
+      .pasuk-translit {
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(35, 26, 15, 0.65);
+      }
+
+      .practice {
+        font-size: 0.82rem;
+        color: rgba(35, 26, 15, 0.75);
+      }
+
+      .practice strong {
+        color: var(--accent);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: 0.76rem;
+      }
+
+      .midah-line {
+        font-size: 0.9rem;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .midah-label {
+        font-weight: 600;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        margin-right: 0.15em;
+      }
+
+      .panel-deep {
+        padding: 0.48in 0.38in 0.44in;
+        gap: 0.22in;
+      }
+
+      .panel-deep h2 {
+        font-size: 1.32rem;
+        line-height: 1.1;
+      }
+
+      .panel-deep .hebrew {
+        text-align: center;
+        font-size: 1.08rem;
+        color: var(--accent);
+      }
+
+      .deep-quote {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--muted);
+        border-left: 3px solid var(--gold);
+        padding-left: 0.18in;
+      }
+
+      .deep-section {
+        display: grid;
+        gap: 0.05in;
+      }
+
+      .deep-section h3 {
+        font-family: "Work Sans", sans-serif;
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0;
+      }
+
+      .deep-section p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .content-spread .panel::after {
+        display: none;
+      }
+
+      .list-inline {
+        display: grid;
+        gap: 0.1in;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .inline-title {
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .screen-note {
+        font-size: 0.8rem;
+        text-align: center;
+        color: rgba(35, 26, 15, 0.55);
+        margin-top: -0.4rem;
+      }
+
+      .fold-instructions {
+        display: grid;
+        gap: 0.08in;
+        font-size: 0.9rem;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.1in;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(35, 26, 15, 0.75);
+      }
+
+      .calendar span {
+        padding: 0.25in 0.18in;
+        border: 1px dashed rgba(47, 60, 136, 0.35);
+        border-radius: 12px;
+        text-align: center;
+        background: rgba(47, 60, 136, 0.05);
+      }
+
+      .quote {
+        font-family: "EB Garamond", serif;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: var(--muted);
+        border-left: 4px solid var(--gold);
+        padding-left: 0.22in;
+      }
+
+      .signature {
+        font-family: "Heebo", sans-serif;
+        font-size: 0.9rem;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen-note">
+      Recomendado: imprimir en carta apaisada, doble cara (voltear por borde corto). Las líneas discretas indican los dobleces.
+    </div>
+
+    <!-- Exterior (de izquierda a derecha: contraportada, panel interior, portada) -->
+    <div class="spread fold-guides">
+      <article class="panel" data-panel="Contraportada">
+        <span class="tag">Cómo aprovecharlo</span>
+        <h2>Ritmo diario sugerido</h2>
+        <ul class="list-inline">
+          <li>
+            <span class="inline-title">Al amanecer:</span> apenas termines "Mode Aní" y las berajot iniciales, lee el pasuk
+            tres veces y pídele a HaShem vivir esa midá con quien verás hoy.
+          </li>
+          <li>
+            <span class="inline-title">Durante el día:</span> antes de responder a tu pareja, hijos o un javer de la kehila,
+            pregúntate cómo actuaría HaShem contigo en esa misma escena.
+          </li>
+          <li>
+            <span class="inline-title">Al anochecer:</span> antes de decir el Shemá al irte a dormir, escribe dos renglones
+            sobre cómo la midá tocó tus relaciones y agradece Su paciencia.
+          </li>
+        </ul>
+        <div>
+          <span class="tag">Calendario de trece días</span>
+          <div class="calendar">
+            <span>Día 1: Mi El Kamoká</span>
+            <span>Día 2: Nosé Avón</span>
+            <span>Día 3: Ve'over Al Pesha</span>
+            <span>Día 4: Lish'erit Najalato</span>
+            <span>Día 5: Lo Hejézik</span>
+            <span>Día 6: Ki Jafetz</span>
+            <span>Día 7: Yashuv</span>
+            <span>Día 8: Yijbosh</span>
+            <span>Día 9: Vetashlij</span>
+            <span>Día 10: Titen Emet</span>
+            <span>Día 11: Jesed LeAvraham</span>
+            <span>Día 12: Asher Nishbata</span>
+            <span>Día 13: Mimei Kedem</span>
+          </div>
+        </div>
+        <p class="quote">
+          "Imita a tu Creador: todas tus acciones deben parecerse a las Suyas."<br />
+          - Tomer Devorá 1:1
+        </p>
+        <p class="signature">Abraham Bentolila / Joe Sitt / CDMX 5785</p>
+      </article>
+
+      <article class="panel" data-panel="Instrucciones">
+        <span class="tag">Folleto imprimible</span>
+        <h2>Guía de impresión y doblez</h2>
+        <div class="fold-instructions">
+          <p>
+            <strong>Configuración:</strong> tamaño carta, orientación horizontal, márgenes 0.45", imprimir doble
+            cara "voltear por borde corto".
+          </p>
+          <p>
+            <strong>Sin dúplex:</strong> imprime primero esta cara (exterior). Reintroduce la hoja respetando la
+            orientación y luego imprime la cara interior.
+          </p>
+          <p>
+            <strong>Doblez:</strong> usa las guías suaves como referencia. Dobla primero el panel derecho (portada)
+            hacia dentro, después el izquierdo para cerrar.
+          </p>
+          <p>
+            <strong>Tips:</strong> usa papel de 160 g para mayor rigidez. Si plastificas, recorta 2 mm antes de
+            laminar para evitar burbujas.
+          </p>
+        </div>
+        <p>
+          Guarda el tríptico dentro de tu sidur o junto a la mesa de Shabat. Antes de comenzar el día, toma un panel,
+          di el pasuk en voz alta y piensa en alguien de tu familia o kehila con quien puedas vivir esa midá.
+        </p>
+      </article>
+
+      <article class="panel" data-panel="Portada">
+        <span class="tag">Tríptico de bolsillo</span>
+        <h1>Tomer Devorá</h1>
+        <h3>Trece reflejos para el corazón</h3>
+        <blockquote class="hebrew">יָשׁוּב יְרַחֲמֵנוּ יִכְבֹּשׁ עֲוֹנֹתֵינוּ</blockquote>
+        <p>
+          Rabí Moshé Cordovero (Ramak) enseña que el honor de Israel florece cuando imitamos la misericordia con la
+          que HaShem nos sostiene. Estas trece midot son un mapa para llevar Su paciencia a nuestros vínculos.
+        </p>
+        <p class="quote">
+          Mantén este tríptico junto a tu sidur o en la mesa del comedor. Cada día, deja que una midá guíe tus
+          conversaciones.
+        </p>
+      </article>
+    </div>
+
+    <!-- Interior (de izquierda a derecha al abrir: panel interior izquierdo, centro, derecho) -->
+    <div class="spread fold-guides">
+      <article class="panel" data-panel="Interior izquierdo">
+        <span class="tag">Midot 1-4</span>
+          <h2>Comienza sosteniendo</h2>
+          <div class="midot-grid">
+            <div class="midah">
+              <div class="midah-head">
+                <em>1) Mi El Kamoká</em>
+                <strong>מִי־אֵל כָּמוֹךָ</strong>
+                <span class="pasuk-translit">Mi El Kamokha</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "¿Quién es como Tú...?" (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> aunque lo ofendemos, mantiene nuestra vida y se traga el coraje para darnos fuerza.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> sostén al otro incluso cuando te hirió; una pausa humilde abre la puerta a la teshuvá.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la contención dignifica y convierte la ofensa en invitación a regresar.
+              </p>
+              <p class="practice"><strong>Paso:</strong> cuando la réplica esté en tu lengua, cuenta 30 segundos y responde con suavidad.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>2) Nosé Avón</em>
+                <strong>נֹשֵׂא עָוֹן</strong>
+                <span class="pasuk-translit">Nosé Avón</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Que carga la falta." (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> cada pecado crea un malaj dañador y aun así HaShem lo sostiene para darnos margen a la teshuvá.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> mantén abierta la mesa, aunque la reparación tarde; dar tiempo es un acto de jesed.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> paciencia activa salva relaciones que el orgullo destruiría.
+              </p>
+              <p class="practice"><strong>Paso:</strong> envía hoy un mensaje abierto: "Cuando quieras platicar y arreglar, aquí estoy".</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>3) Ve'over Al Pesha</em>
+                <strong>וְעוֹבֵר עַל־פֶּשַׁע</strong>
+                <span class="pasuk-translit">Ve'over Al Pesha</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Que pasa por encima de la transgresión." (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> Él personalmente borra la mancha y nos suplica no volver a caer.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> da el primer paso para reconstruir el puente sin exigir que el otro llegue perfecto.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> perdonar es ofrecerle al otro un camino de madurez, no licencia para repetir errores.
+              </p>
+              <p class="practice"><strong>Paso:</strong> llama a quien está distante y ofrécele un café para conversar sin reproches.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>4) Lish'erit Najalato</em>
+                <strong>לִשְׁאֵרִית נַחֲלָתוֹ</strong>
+                <span class="pasuk-translit">Lish'erit Najalato</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Por el remanente de Su heredad." (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> somos Su familia; cuando sufre un hijo, la Shejiná siente el mismo dolor.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> trata al prójimo como parte de tu neshamá; evitar dañarlo es proteger la Presencia Divina.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> "Veahavta lereajá kamoja" es recordar que compartimos un alma colectiva.
+              </p>
+              <p class="practice"><strong>Paso:</strong> antes de una charla difícil di en voz baja "Somos mishpajá" y deja que esa frase ablande tu voz.</p>
+            </div>
+          </div>
+        </article>
+
+      <article class="panel" data-panel="Interior central">
+        <span class="tag">Midot 5-8</span>
+          <h2>Afina el corazón</h2>
+          <div class="midot-grid">
+            <div class="midah">
+              <div class="midah-head">
+                <em>5) Lo Hejézik La'ad Apó</em>
+                <strong>לֹא־הֶחֱזִיק לָעַד אַפּוֹ</strong>
+                <span class="pasuk-translit">Lo Hejazik La'ad Apó</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "No mantiene Su enojo para siempre." (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> enfría Su ira aunque sigamos tercos y nos permite seguir vivos mientras regresamos.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> suelta la ofensa incluso si la disculpa no llega todavía; deja espacio para sanar.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> al soltar el enojo hacemos lugar para que la misericordia gobierne.
+              </p>
+              <p class="practice"><strong>Paso:</strong> escribe lo que te dolió y rómpelo diciendo "HaShem, suelto esto contigo".</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>6) Ki Jafetz Jésed</em>
+                <strong>כִּי־חָפֵץ חֶסֶד הוּא</strong>
+                <span class="pasuk-translit">Ki Jafetz Jesed</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Porque Él se deleita en el jesed." (Miqueas 7:18)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> cada acto de bondad crea defensores que presentan nuestros méritos cuando surge la justicia.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> deja que el balance se incline por sus virtudes y recuérdale -y recuérdate- lo bueno que aporta.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la memoria agradecida desactiva el rencor.
+              </p>
+              <p class="practice"><strong>Paso:</strong> menciona hoy tres cualidades luminosas de quien te cuesta trabajo.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>7) Yashuv Yerajaménu</em>
+                <strong>יָשׁוּב יְרַחֲמֵנוּ</strong>
+                <span class="pasuk-translit">Yashuv Yerajamenu</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Él volverá a compadecerse de nosotros." (Miqueas 7:19)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> no guarda rencor; ama aún más al baal teshuvá porque trajo nueva luz.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> borra el residuo de resentimiento cuando se arrepiente y celébralo con afecto renovado.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la reconciliación debe fortalecernos, no dejarnos frágiles.
+              </p>
+              <p class="practice"><strong>Paso:</strong> responde a su disculpa con un detalle cariñoso que selle el nuevo comienzo.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>8) Yijbosh Avonoténu</em>
+                <strong>יִכְבֹּשׁ עֲוֹנֹתֵינוּ</strong>
+                <span class="pasuk-translit">Yijbosh Avonotenu</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Sujetará nuestras iniquidades." (Miqueas 7:19)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> subyuga nuestras faltas y pone nuestros méritos al frente.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> permite que la narrativa dominante sea su bondad, no su error puntual.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la memoria selectiva orientada al bien cambia la historia compartida.
+              </p>
+              <p class="practice"><strong>Paso:</strong> crea una carpeta de gratitud en tu celular y léela cuando el enojo asome.</p>
+            </div>
+          </div>
+        </article>
+
+      <article class="panel" data-panel="Interior derecho">
+        <span class="tag">Midot 9-13</span>
+          <h2>Juzga con verdad y jesed</h2>
+          <div class="midot-grid">
+            <div class="midah">
+              <div class="midah-head">
+                <em>9) Vetashlij Bemetzulót Yam</em>
+                <strong>וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם</strong>
+                <span class="pasuk-translit">Vetashlij Bemetzulot Yam</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Arrojarás al mar todos sus pecados." (Miqueas 7:19)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> borra nuestras faltas sin regodearse en el castigo de quien dañó a Israel.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> no te alegres cuando reciba su corrección; pide que encuentre tikún.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la justicia divina restaura, no se alimenta de venganza.
+              </p>
+              <p class="practice"><strong>Paso:</strong> al oír de su dificultad, di "HaShem, dale corrección y paz".</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>10) Titen Emet LeYaakov</em>
+                <strong>תִּתֵּן אֱמֶת לְיַעֲקֹב</strong>
+                <span class="pasuk-translit">Titen Emet LeYaakov</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Da verdad a Yaakov." (Miqueas 7:20)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> nos juzga con verdad limpia y lealtad, mostrándonos el camino sin abandonarnos.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> analiza el caso sin buscar ventaja y pregunta qué dato falta antes de emitir juicio.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la verdad sin lealtad hiere; la verdad con amor repara.
+              </p>
+              <p class="practice"><strong>Paso:</strong> antes de hablar, escribe los hechos y subraya qué es suposición.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>11) Jesed LeAvraham</em>
+                <strong>חֶסֶד לְאַבְרָהָם</strong>
+                <span class="pasuk-translit">Jesed LeAvraham</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Jesed para Abraham." (Miqueas 7:20)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> agrega misericordia incluso cuando la justicia se activó, siguiendo la senda de Abraham.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> responde con jesed aun si tienes argumentos para ser duro; honra tu linaje.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> somos hijos de Abraham cuando damos bondad incluso a quien nos falló.
+              </p>
+              <p class="practice"><strong>Paso:</strong> realiza un acto de jesed discreto por alguien con quien estés distanciado.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>12) Asher Nishbata</em>
+                <strong>אֲשֶׁר נִשְׁבַּעְתָּ</strong>
+                <span class="pasuk-translit">Asher Nishbata</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Como juraste a nuestros padres." (Miqueas 7:20)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> se apiada de nosotros recordando los méritos de nuestros ancestros.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> honra sus raíces y pide por él recordando a sus padres y maestros.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> ver la historia del otro suaviza cualquier resentimiento.
+              </p>
+              <p class="practice"><strong>Paso:</strong> menciona en tu tefilá su nombre seguido de "ben/bat" y los nombres de sus padres.</p>
+            </div>
+            <div class="midah">
+              <div class="midah-head">
+                <em>13) Mimei Kedem</em>
+                <strong>מִימֵי קֶדֶם</strong>
+                <span class="pasuk-translit">Mimei Kedem</span>
+              </div>
+              <p class="midah-line">
+                <span class="midah-label">Pasuk:</span> "Desde los días antiguos." (Miqueas 7:20)
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">HaShem contigo:</span> cuando se agotan méritos recientes, recupera nuestras buenas acciones de la infancia.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Con tu compañero:</span> recuerda sus gestos antiguos de bondad y deja que iluminen tu trato actual.
+              </p>
+              <p class="midah-line">
+                <span class="midah-label">Aprende hoy:</span> la gratitud sostenida reaviva el amor y baja las defensas del corazón.
+              </p>
+              <p class="practice"><strong>Paso:</strong> antes de dormir agradece tres bondades pasadas suyas y deja que guíen tu mañana.</p>
+            </div>
+          </div>
+        </article>
+    </div>
+
+    <!-- Profundiza Midot 1-3 -->
+    <div class="spread content-spread">
+      <article class="panel panel-deep" data-panel="Profundiza 1">
+        <h2>1) Mi El Kamoká</h2>
+        <blockquote class="hebrew">מִי־אֵל כָּמוֹךָ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> El Rey ofendido sostiene y alimenta a quien lo provoca en el mismo instante en que peca, esperando su regreso sin avergonzarlo.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Recuerda una conversación en la que contestaste con ironía o enojo. ¿Qué habría pasado si hubieras hecho silencio amable como hace HaShem contigo?</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Si tu hijo o tu pareja alzan la voz, sostén la calma y di: "Voy a escucharte hasta el final". Esa frase enseña contención sin humillar.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Cuando un integrante critica un proyecto, míralo a los ojos, agradece su preocupación y propón revisar juntos la alternativa. El tono marca la diferencia.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 2">
+        <h2>2) Nosé Avón</h2>
+        <blockquote class="hebrew">נֹשֵׂא עָוֹן</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> Cada abera crea un malaj dañador que exige vida, y HaShem lo sostiene con compasión mientras aguarda nuestra teshuvá.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Identifica a alguien que te debe una disculpa vieja. Observa si tu corazón quiere cerrar el tema de inmediato o si puede regalarle tiempo genuino.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>No cierres la puerta cuando un ser querido reconoce que no sabe cómo arreglar el daño. Dile: "Tómate tu tiempo, aquí sigo".</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Si un miembro falló en una mitzvá comunitaria, ofrécele acompañarlo en el proceso de reparación en vez de excluirlo del proyecto.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 3">
+        <h2>3) Ve'over Al Pesha</h2>
+        <blockquote class="hebrew">וְעוֹבֵר עַל־פֶּשַׁע</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem mismo limpia la suciedad del pecado y nos advierte con cariño que no volvamos a ensuciarnos.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>¿Dónde podrías tender un puente antes de que te pidan perdón? Haz memoria de un vínculo congelado y diseña el primer movimiento.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Da el ejemplo disculpándote primero cuando levantes la voz. Muestra que restaurar la paz vale más que "tener la razón".</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Lleva una propuesta concreta a la persona con la que hubo fricción: "¿Te parece si comenzamos nuevamente desde este acuerdo?"</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Profundiza Midot 4-6 -->
+    <div class="spread content-spread">
+      <article class="panel panel-deep" data-panel="Profundiza 4">
+        <h2>4) Lish'erit Najalato</h2>
+        <blockquote class="hebrew">לִשְׁאֵרִית נַחֲלָתוֹ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> Somos parte de la misma heredad; la Shejiná sufre con el dolor de cada miembro de Israel.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Piensa en una persona con quien te cuesta empatizar. Visualiza que una chispa de su neshamá también late en ti.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Cuando haya tensión familiar, repite "Somos una sola alma". Cambia el lenguaje de acusación por frases que incluyan a todos.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Si escuchas chismes, corta con delicadeza: "Estamos hablando de nuestra propia familia, cuidemos la Shejiná".</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 5">
+        <h2>5) Lo Hejézik La'ad Apó</h2>
+        <blockquote class="hebrew">לֹא־הֶחֱזִיק לָעַד אַפּוֹ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem no se aferra al enojo; cuando perdona, lo hace de corazón y nos devuelve el rostro cariñoso.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Detecta una emoción que hayas guardado demasiado tiempo. Escríbela y entrégala a HaShem en tu tefilá nocturna.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Avisa cuando necesites un respiro: "Estoy enojado, pero quiero volver con calma en unos minutos". Evita las sentencias definitivas.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Normaliza espacios de reparación. Propón reuniones breves para limpiar malentendidos antes de que crezcan resentimientos.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 6">
+        <h2>6) Ki Jafetz Jésed</h2>
+        <blockquote class="hebrew">כִּי־חָפֵץ חֶסֶד הוּא</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> Los actos de jesed despiertan defensores celestiales que recuerdan lo bueno incluso en tiempos de juicio.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Haz un inventario secreto de los gestos buenos que recibes cada semana. Mírala cuando sientas molestia hacia alguien de tu círculo.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Coloca en la mesa de Shabat una tarjeta de agradecimiento donde cada integrante anote el jesed visto en el otro.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Instituye un momento en la asamblea para reconocer públicamente a quien hace jesed silencioso. El reconocimiento inspira imitadores.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Profundiza Midot 7-9 -->
+    <div class="spread content-spread">
+      <article class="panel panel-deep" data-panel="Profundiza 7">
+        <h2>7) Yashuv Yerajaménu</h2>
+        <blockquote class="hebrew">יָשׁוּב יְרַחֲמֵנוּ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem abraza de nuevo con más amor al que regresa; la teshuvá trae brillo adicional.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>¿Cuándo fue la última vez que festejaste la teshuvá de alguien? Agradece la valentía de quien se levantó de un tropiezo.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Cuando un hijo reconoce su error, respóndele con algo cariñoso: una bebida caliente, un paseo, un abrazo largo.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Propón historias de teshuvá en reuniones comunitarias. Permite que otros cuenten su proceso sin miedo al juicio.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 8">
+        <h2>8) Yijbosh Avonoténu</h2>
+        <blockquote class="hebrew">יִכְבֹּשׁ עֲוֹנֹתֵינוּ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem subyuga nuestras faltas colocándolas debajo de las mitzvot, resaltando el bien sobre el error.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Elabora tu propia "biblioteca de gratitud" con fotos, notas y recuerdos. Úsala cuando las emociones negativas amenacen tu narrativa.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>A la hora de la cena, comparte un gesto noble que alguien de la familia tuvo durante el día y deja que otro lo complemente.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Cuando haya críticas, inicia destacando méritos concretos del grupo o la persona. Así el ajuste llega envuelto en cariño.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 9">
+        <h2>9) Vetashlij Bemetzulót Yam</h2>
+        <blockquote class="hebrew">וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem arroja las faltas al mar profundo y castiga a quienes dañan a Israel sin regodearse en su caída.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Observa si alguna parte de ti disfruta cuando el otro sufre consecuencias. Pídele a HaShem que te llene de compasión por su tikún.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Cuando un hermano o pareja enfrenta un reto, acompáñalo con una tefilá breve y una palabra de ánimo en lugar de un "te lo dije".</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Dirige la conversación hacia soluciones. "¿Qué podemos hacer para que sufra menos y aprenda lo que necesita?"</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Profundiza Midot 10-12 -->
+    <div class="spread content-spread">
+      <article class="panel panel-deep" data-panel="Profundiza 10">
+        <h2>10) Titen Emet LeYaakov</h2>
+        <blockquote class="hebrew">תִּתֵּן אֱמֶת לְיַעֲקֹב</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem revela la verdad con fidelidad; muestra el rumbo correcto sin abandonar a quien corrige.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Antes de señalar un error, pregúntate si la otra persona se siente segura contigo. La verdad es medicina cuando se administra con lealtad.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Usa frases que unan: "Esto nos conviene" en vez de "estás mal". La verdad compartida fortalece la alianza familiar.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Si debes corregir a alguien en público, hazlo defendiendo también sus méritos. Muestra que su valor no está en juicio.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 11">
+        <h2>11) Jesed LeAvraham</h2>
+        <blockquote class="hebrew">חֶסֶד לְאַבְרָהָם</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem sigue la senda de Abraham Avinu, agregando bondad incluso cuando la justicia exige rigor.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Recuerda que desciendes de Abraham, Itzjak y Yaakov. ¿Qué gesto bondadoso tuyo honraría hoy su legado?</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Realiza un acto de jesed silencioso: prepara el desayuno, deja una nota cariñosa o resuelve un pendiente del otro sin anunciarlo.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Practica el jesed con quien menos esperaría tu ayuda. Esa sorpresa cariñosa abre corazones endurecidos.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Profundiza 12">
+        <h2>12) Asher Nishbata</h2>
+        <blockquote class="hebrew">אֲשֶׁר נִשְׁבַּעְתָּ</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem evoca el juramento hecho a los patriarcas para extender compasión incluso cuando faltan méritos personales.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Piensa en los méritos de tus padres y abuelos. Agradece en voz alta cómo su fe sigue sosteniéndote.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Menciona los nombres de los abuelos en las tefilot familiares. Pide que sus méritos protejan los procesos de reconciliación.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Cuando alguien tropieza, recuérdale historias luminosas de su familia. Es más fácil cambiar desde el orgullo sano que desde la vergüenza.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Profundiza Midá 13 y herramientas -->
+    <div class="spread content-spread">
+      <article class="panel panel-deep" data-panel="Profundiza 13">
+        <h2>13) Mimei Kedem</h2>
+        <blockquote class="hebrew">מִימֵי קֶדֶם</blockquote>
+        <p class="deep-quote"><span class="midah-label">Texto del Ramak:</span> HaShem reúne las buenas acciones de los días antiguos para salvarnos incluso cuando los méritos presentes se agotaron.</p>
+        <div class="deep-section">
+          <h3>Reflexiona</h3>
+          <p>Haz un recorrido por tu infancia y enumera momentos en los que elegiste el bien. Pídele a HaShem que esa luz vuelva a despertar.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En casa</h3>
+          <p>Cuenta a tus hijos historias de tu niñez donde elegiste emet o jesed. Invítalos a compartir sus propias memorias luminosas.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con los demás</h3>
+          <p>Organiza una noche de anécdotas positivas. Cada persona narra una escena antigua donde un judío la inspiró. Saldrán todos con ganas de imitarlo.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Tu bitácora">
+        <h2>Bitácora de trece días</h2>
+        <p class="deep-quote"><span class="midah-label">Cómo usarla:</span> dedica cinco minutos al cierre de cada jornada y completa estas notas. Al terminar el ciclo, lee las trece entradas de corrido.</p>
+        <div class="deep-section">
+          <h3>Hoy imité a HaShem cuando...</h3>
+          <p>Describe la escena y la emoción que apareció al actuar como Él contigo.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Aprendí que debo trabajar en...</h3>
+          <p>Anota un obstáculo recurrente. Escríbelo con humildad y sin golpearte.</p>
+        </div>
+        <div class="deep-section">
+          <h3>Mañana quiero...</h3>
+          <p>Elige una acción concreta. Manténla realista para asegurar consistencia.</p>
+        </div>
+      </article>
+
+      <article class="panel panel-deep" data-panel="Farbrengen">
+        <h2>Preguntas para compartir</h2>
+        <p class="deep-quote"><span class="midah-label">Para familia o jabruta:</span> estas preguntas alimentan el diálogo y ayudan a sostener el trabajo interior en comunidad.</p>
+        <div class="deep-section">
+          <h3>En la mesa</h3>
+          <p>¿Cuál midá te costó más y cuál te fluyó natural esta semana? ¿A quién viste practicar una de ellas sin saberlo?</p>
+        </div>
+        <div class="deep-section">
+          <h3>Con amigos</h3>
+          <p>Cuéntale a tu jabruta dónde sentiste la paciencia de HaShem en los últimos días. Pídele que te señale una cualidad luminosa que quizá no ves.</p>
+        </div>
+        <div class="deep-section">
+          <h3>En la comunidad</h3>
+          <p>Propongan un proyecto de jesed inspirado en el Ramak. ¿Qué midá quieren que distinga a su kehila este mes?</p>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

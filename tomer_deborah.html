@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Edición refinada del Tomer Devorá con las trece cualidades de misericordia, citas completas en hebreo y ejercicios prácticos para reflejar la conducta divina en nuestras relaciones."
+    />
+    <meta name="author" content="Abraham Bentolila · Joe Sitt" />
+    <meta property="og:title" content="Tomer Devorá · Trece Cualidades Reflejadas" />
+    <meta
+      property="og:description"
+      content="Recorrido minimalista, bilingüe y responsivo para estudiar y vivir el Tomer Devorá conforme a מיכה 7:18-20 · Mijá 7:18-20."
+    />
+    <title>Tomer Devorá · Trece Cualidades Reflejadas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&amp;family=Work+Sans:wght@300;400;500;600&amp;family=Heebo:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f9f6ef;
+        --surface: rgba(255, 255, 255, 0.94);
+        --ink: #201b16;
+        --ink-soft: rgba(32, 27, 22, 0.7);
+        --accent: #283a82;
+        --accent-soft: rgba(40, 58, 130, 0.12);
+        --accent-muted: rgba(40, 58, 130, 0.07);
+        --gold: #b48e4b;
+        --border: rgba(40, 58, 130, 0.18);
+        --card: rgba(255, 255, 255, 0.98);
+        --card-alt: rgba(255, 255, 255, 0.92);
+        --shadow: 0 20px 40px rgba(24, 19, 46, 0.14);
+        --radius-lg: 28px;
+        --radius-md: 18px;
+        --radius-sm: 12px;
+        --max-width: 1200px;
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #11111b;
+          --surface: rgba(20, 19, 28, 0.92);
+          --ink: #f2ece2;
+          --ink-soft: rgba(242, 236, 226, 0.7);
+          --accent: #beb3ff;
+          --accent-soft: rgba(190, 179, 255, 0.2);
+          --accent-muted: rgba(190, 179, 255, 0.14);
+          --gold: #d8c48c;
+          --border: rgba(190, 179, 255, 0.28);
+          --card: rgba(32, 31, 44, 0.92);
+          --card-alt: rgba(45, 43, 62, 0.92);
+          --shadow: 0 26px 60px rgba(0, 0, 0, 0.48);
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid rgba(180, 142, 75, 0.6);
+        outline-offset: 4px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      .page {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: clamp(1.6rem, 3.6vw, 2.8rem) clamp(1.2rem, 4.5vw, 3rem) 4.6rem;
+        display: grid;
+        gap: clamp(2rem, 4vw, 3rem);
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -3rem;
+        left: clamp(1rem, 5vw, 3rem);
+        background: var(--accent);
+        color: #fff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 999px;
+        transition: top 0.2s ease;
+        z-index: 1000;
+      }
+
+      .skip-link:focus {
+        top: 1.5rem;
+      }
+
+      header.hero {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: clamp(2.3rem, 5vw, 3.6rem);
+        display: grid;
+        gap: clamp(1.4rem, 3vw, 2.3rem);
+      }
+
+      .hero__eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+      }
+
+      .hero__grid {
+        display: grid;
+        gap: clamp(1.6rem, 3vw, 2.4rem);
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .hero__title {
+        margin: 0;
+        font-family: "EB Garamond", "Times New Roman", serif;
+        font-size: clamp(2.5rem, 5.3vw, 4.1rem);
+        line-height: 1.08;
+        color: var(--accent);
+      }
+
+      .hero__lead {
+        margin: 0;
+        font-size: clamp(1.04rem, 2.2vw, 1.22rem);
+        color: var(--ink-soft);
+        max-width: 70ch;
+      }
+
+      .hero__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .hero__meta span {
+        background: var(--accent-muted);
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+      }
+
+      .hero__verse {
+        border-left: 3px solid var(--gold);
+        padding-left: 1.5rem;
+      }
+
+      .hero__verse blockquote {
+        margin: 0;
+        font-family: "EB Garamond", serif;
+        font-size: 1.16rem;
+        color: var(--ink);
+      }
+
+      .hero__verse-translit {
+        margin: 0.6rem 0 0;
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+
+      .hero__verse cite {
+        display: block;
+        margin-top: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.84rem;
+        color: var(--ink-soft);
+      }
+
+      .layout {
+        display: grid;
+        gap: clamp(1.6rem, 3vw, 2.4rem);
+      }
+
+      .shell {
+        display: grid;
+        gap: clamp(1.6rem, 3vw, 2.4rem);
+      }
+
+      nav.toc {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: clamp(1.6rem, 3vw, 2.2rem);
+      }
+
+      nav.toc h2 {
+        margin: 0 0 1.2rem;
+        font-family: "EB Garamond", serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+      }
+
+      nav.toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      nav.toc a {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.55rem 0.75rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid transparent;
+        font-size: 0.94rem;
+        color: var(--ink-soft);
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      nav.toc a span:first-child {
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      nav.toc a span:last-child {
+        line-height: 1.4;
+      }
+
+      nav.toc a:hover,
+      nav.toc a:focus-visible {
+        background: var(--accent-soft);
+        border-color: rgba(40, 58, 130, 0.24);
+        color: var(--accent);
+      }
+
+      nav.toc a[aria-current="true"] {
+        background: rgba(180, 142, 75, 0.2);
+        border-color: rgba(180, 142, 75, 0.42);
+        color: var(--accent);
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .content {
+        display: grid;
+        gap: clamp(1.8rem, 3.5vw, 2.6rem);
+      }
+
+      section.intro,
+      section.qualities,
+      section.closing {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: clamp(1.9rem, 3.8vw, 2.9rem);
+      }
+
+      section.intro h2,
+      section.qualities > h2,
+      section.closing h2 {
+        margin: 0 0 0.8rem;
+        font-family: "EB Garamond", serif;
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        color: var(--accent);
+      }
+
+      .intro__grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .intro__card {
+        border-radius: var(--radius-md);
+        padding: 1.1rem 1.3rem;
+        background: var(--accent-muted);
+        border: 1px solid rgba(40, 58, 130, 0.16);
+      }
+
+      .intro__card strong {
+        display: block;
+        font-size: 0.82rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.45rem;
+      }
+
+      .qualities__grid {
+        display: grid;
+        gap: clamp(1.6rem, 3vw, 2.4rem);
+      }
+
+      .quality {
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        padding: clamp(1.8rem, 3.2vw, 2.6rem);
+        background: var(--card);
+        display: grid;
+        gap: clamp(1.1rem, 2.4vw, 1.8rem);
+        scroll-margin-top: clamp(6.8rem, 9vw, 8rem);
+      }
+
+      .quality__header {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .quality__label {
+        font-size: 0.76rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .quality__title {
+        margin: 0;
+        font-family: "EB Garamond", serif;
+        font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: baseline;
+      }
+
+      .quality__hebrew-title {
+        font-size: 0.94rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .quality__translit {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+
+      .quality__verse {
+        border-radius: var(--radius-md);
+        background: var(--accent-soft);
+        padding: 1.35rem 1.6rem;
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .quality__verse blockquote {
+        margin: 0;
+        font-family: "Heebo", "EB Garamond", serif;
+        font-size: clamp(1.25rem, 2.8vw, 1.7rem);
+        direction: rtl;
+        text-align: right;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+      }
+
+      .quality__verse-translation {
+        margin: 0;
+        font-size: 0.98rem;
+        color: var(--ink-soft);
+      }
+
+      .quality__verse small,
+      .quality__verse-translation small {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
+      .quality__verse small {
+        display: inline-block;
+        margin-top: 0.2rem;
+      }
+
+      .quality__lists {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .quality__list {
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        padding: 1.1rem 1.3rem;
+        background: var(--card-alt);
+      }
+
+      .quality__list h3 {
+        margin: 0 0 0.6rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .quality__list ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.45rem;
+        font-size: 0.97rem;
+        color: var(--ink);
+      }
+
+      .quality__context {
+        margin-top: 0.6rem;
+        border-radius: var(--radius-md);
+        border-left: 3px solid var(--gold);
+        padding: 1rem 1.2rem;
+        background: rgba(180, 142, 75, 0.12);
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+
+      .quality__context strong {
+        display: block;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.35rem;
+      }
+
+      .closing__grid {
+        display: grid;
+        gap: 0.95rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .closing__card {
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(40, 58, 130, 0.18);
+        padding: 1.1rem 1.3rem;
+        background: var(--accent-muted);
+        color: var(--ink);
+      }
+
+      footer.site-footer {
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+      }
+
+      footer.site-footer strong {
+        display: block;
+        margin-bottom: 0.6rem;
+        font-family: "EB Garamond", serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      footer.site-footer a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.28em;
+      }
+
+      @media (min-width: 1080px) {
+        .shell {
+          grid-template-columns: 320px minmax(0, 1fr);
+        }
+
+        nav.toc {
+          position: sticky;
+          top: clamp(1rem, 3vw, 1.8rem);
+          align-self: start;
+        }
+      }
+
+      @media (max-width: 960px) {
+        nav.toc {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          font-size: 15px;
+        }
+
+        nav.toc ol {
+          grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        }
+
+        nav.toc a {
+          border-radius: 999px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+    <main class="page" id="contenido" tabindex="-1">
+      <header class="hero">
+        <span class="hero__eyebrow">Edición de Abraham Bentolila · Joe Sitt</span>
+        <div class="hero__grid">
+          <div>
+            <h1 class="hero__title">Tomer Devorá: trece cualidades para reflejar a Hashem</h1>
+            <p class="hero__lead">
+              Rabenu Moshé Cordovero, conocido como el Ramak, nos enseña cómo Hashem se comporta con
+              nosotros y cómo espera que tratemos al compañero. Esta edición en español de México te ofrece
+              las cualidades en hebreo y palabras sencillas para imitar Su conducta en cada vínculo.
+            </p>
+          </div>
+          <div>
+            <div class="hero__meta">
+              <span><span lang="he" dir="rtl">מיכה ז׳:י״ח–כ׳</span> · Mijá 7:18-20</span>
+              <span>Tomer Devorá</span>
+              <span>Guía práctica</span>
+            </div>
+            <div class="hero__verse">
+              <blockquote lang="he" dir="rtl">
+                מִי־אֵל כָּמוֹךָ נֹשֵׂא עָוֹן וְעוֹבֵר עַל־פֶּשַׁע לִשְׁאֵרִית נַחֲלָתוֹ לֹא הֶחֱזִיק
+                לָעַד אַפּוֹ כִּי חָפֵץ חֶסֶד הוּא
+              </blockquote>
+              <p class="hero__verse-translit">
+                Mi El Kamója, nosé avón ve'over al pésha lish'erit najalató; lo hejazík la'ad apó, ki jafetz
+                jésed hu.
+              </p>
+              <cite><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</cite>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="shell">
+        <nav class="toc" aria-label="Índice de cualidades">
+          <h2>Mapa del estudio</h2>
+          <ol>
+            <li><a href="#cualidad-1"><span>01</span><span>Mi El Kamója</span></a></li>
+            <li><a href="#cualidad-2"><span>02</span><span>Nose Avon</span></a></li>
+            <li><a href="#cualidad-3"><span>03</span><span>Ve&#39;over Al Pesha</span></a></li>
+            <li><a href="#cualidad-4"><span>04</span><span>Lish&#39;erit Najalato</span></a></li>
+            <li><a href="#cualidad-5"><span>05</span><span>Lo Hejazik La&#39;ad Apo</span></a></li>
+            <li><a href="#cualidad-6"><span>06</span><span>Ki Jafetz Jesed</span></a></li>
+            <li><a href="#cualidad-7"><span>07</span><span>Yashuv Yerajamenu</span></a></li>
+            <li><a href="#cualidad-8"><span>08</span><span>Yejbosh Avonotenu</span></a></li>
+            <li><a href="#cualidad-9"><span>09</span><span>Vetashlij Bemetzulot Yam</span></a></li>
+            <li><a href="#cualidad-10"><span>10</span><span>Titen Emet LeYaakov</span></a></li>
+            <li><a href="#cualidad-11"><span>11</span><span>Jesed LeAvraham</span></a></li>
+            <li><a href="#cualidad-12"><span>12</span><span>Asher Nishbata</span></a></li>
+            <li><a href="#cualidad-13"><span>13</span><span>Mimei Kedem</span></a></li>
+          </ol>
+        </nav>
+
+        <div class="content">
+          <section class="intro" aria-labelledby="intro-title">
+            <h2 id="intro-title">Cómo seguir este recorrido</h2>
+            <p>
+              Cada cualidad nos cuenta cómo Hashem trata a Sus hijos y nos enseña a actuar con las personas que
+              nos rodean; así aprendemos a tratar a nuestros compañeros. Deja que cada enseñanza te hable al
+              corazón y permite que guíe tu forma de tratar al otro ese día. Es un camino cálido, no académico.
+            </p>
+            <div class="intro__grid">
+              <article class="intro__card">
+                <strong>Propósito</strong>
+                Aprender y entender cómo Hashem se comporta con nosotros para poder imitarlo con nuestra
+                sociedad.
+              </article>
+              <article class="intro__card">
+                <strong>Metodología</strong>
+                Dedica trece días al ciclo: una cualidad por día, repite su enseñanza, sostén una intención
+                concreta y anota qué cambió en tu corazón.
+              </article>
+              <article class="intro__card">
+                <strong>Compromiso</strong>
+                Vuelve a estas cualidades cada vez que un vínculo se tense; son tu brújula para reconstruir con
+                cariño.
+              </article>
+            </div>
+          </section>
+
+          <section class="qualities" aria-labelledby="qualities-title">
+            <h2 id="qualities-title">Trece cualidades, trece espejos</h2>
+            <div class="qualities__grid">
+              <article class="quality" id="cualidad-1">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 01</span>
+                  <h3 class="quality__title">
+                    Mi El Kamója
+                    <span class="quality__hebrew-title">מִי־אֵל כָּמוֹךָ</span>
+                  </h3>
+                  <p class="quality__translit">Mi El Kamója — ¿Quién es como Tú?</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">מִי־אֵל כָּמוֹךָ</blockquote>
+                  <p class="quality__verse-translation">¿Quién es un Dios como Tú?</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Cuando una persona peca, Hashem sigue alimentando su aliento y sus fuerzas en ese mismo instante.</li>
+                      <li>Permite que usemos Sus propios dones incluso si los ocupamos para rebelarnos, esperando a que despertemos.</li>
+                      <li>No retira Su bondad hasta que nosotros mismos elegimos alejarnos; Su paciencia abre la puerta a la teshuvá.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Si alguien me hiere mientras lo estoy ayudando, no retiro de golpe mi apoyo; primero le doy espacio para reaccionar.</li>
+                      <li>Evito usar lo que sé de la persona para hundirla; le recuerdo con cariño quién puede llegar a ser.</li>
+                      <li>Cuando alguien me ofende y tengo la opción de vengarme, elijo paciencia y autocontrol para parecerme a Hashem.</li>
+                      <li>Hago de mi autocontrol una invitación cálida para que el otro regrese y repare.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="quality__context">
+                  <strong>Contexto Ramak</strong>
+                  <p>
+                    En el primer capítulo del Tomer Devorá, el Ramak enseña que «Mi El Kamója» describe a Hashem
+                    sosteniendo al pecador justo cuando se rebela: le da vida, alimento y aire aunque use esos
+                    regalos para fallar. Nuestra tarea es copiar ese aguante con quienes dependen de nosotros,
+                    sosteniéndolos hasta que despierten y regresen.
+                  </p>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-2">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 02</span>
+                  <h3 class="quality__title">
+                    Nose Avon
+                    <span class="quality__hebrew-title">נֹשֵׂא עָוֹן</span>
+                  </h3>
+                  <p class="quality__translit">Nosé Avón — El que carga la falta.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">נֹשֵׂא עָוֹן</blockquote>
+                  <p class="quality__verse-translation">Que carga la iniquidad.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Cada vez que peco se crea un malaj dañador, y aun así Hashem le da vida.</li>
+                      <li>Ese malaj espera a que yo haga teshuvá, a que limpie la falta con yesurim o, si no reacciono, en Guehinom.</li>
+                      <li>Hashem me regala tiempo extra para regresar antes de que el golpe sea definitivo.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Cuando alguien me falla y no sabe cómo reparar, le sostengo el corazón en vez de cerrarle la puerta.</li>
+                      <li>Dejo abierta la mesa para que podamos hablar cuando se anime a hacerlo.</li>
+                      <li>Recuerdo que darle tiempo al otro es un jesed enorme, no un acto de debilidad.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-3">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 03</span>
+                  <h3 class="quality__title">
+                    Ve'over Al Pesha
+                    <span class="quality__hebrew-title">וְעוֹבֵר עַל־פֶּשַׁע</span>
+                  </h3>
+                  <p class="quality__translit">Ve'over Al Pesha — Que pasa por encima de la rebelión.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">וְעוֹבֵר עַל־פֶּשַׁע</blockquote>
+                  <p class="quality__verse-translation">Que pasa por encima de la transgresión.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem mismo, con Sus propias manos, limpia la mancha que dejé.</li>
+                      <li>Después me susurra: "No regreses por ahí", porque Su perdón es sagrado.</li>
+                      <li>Me toma de la mano para que crezca y no tropiece con la misma piedra.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>No espero a que la otra persona traiga una solución perfecta; doy el primer paso con humildad.</li>
+                      <li>Ofrezco caminos sencillos para volvernos a abrazar sin quedarme atorado en el orgullo.</li>
+                      <li>Perdonar significa abrirle la puerta al cambio, no permitir que me sigan lastimando.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-4">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 04</span>
+                  <h3 class="quality__title">
+                    Lish'erit Najalato
+                    <span class="quality__hebrew-title">לִשְׁאֵרִית נַחֲלָתוֹ</span>
+                  </h3>
+                  <p class="quality__translit">Lish'érit Najalato — El remanente de Su heredad.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">לִשְׁאֵרִית נַחֲלָתוֹ</blockquote>
+                  <p class="quality__verse-translation">Por el remanente de Su heredad.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem nos ve como Sus hijos y cuando nos corrige le duele como a un papá.</li>
+                      <li>Lo que lastima a un yehudí lastima a la Shejiná; el vínculo jamás se rompe.</li>
+                      <li>Compartimos chispas del mismo alma colectiva, una sola familia.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Miro al otro como parte de mí mismo; su dolor no es un espectáculo, es mi propio dolor.</li>
+                      <li>Evito herirlo, porque dañar a un hermano es herir la presencia de Hashem.</li>
+                      <li>Vivo el "Veahavta lereajá kamoja" sintiendo que compartimos la misma sangre espiritual.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-5">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 05</span>
+                  <h3 class="quality__title">
+                    Lo Hejazik La'ad Apo
+                    <span class="quality__hebrew-title">לֹא־הֶחֱזִיק לָעַד אַפּוֹ</span>
+                  </h3>
+                  <p class="quality__translit">Lo Hejézik La'ad Apó — No retiene Su enojo para siempre.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">לֹא־הֶחֱזִיק לָעַד אַפּוֹ</blockquote>
+                  <p class="quality__verse-translation">No se aferra a su enojo para siempre.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem calma Su enojo incluso cuando yo sigo terco.</li>
+                      <li>Me regala aire y vida mientras espera mi regreso.</li>
+                      <li>Su enojo dura un instante, Su amor dura para siempre.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>No me quedo congelado en la ofensa; busco olvidar activamente el golpe.</li>
+                      <li>Aunque nadie se disculpe, suelto la carga para que la relación respire.</li>
+                      <li>Decido que la ira no gobierne mi casa; el perdón sí.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-6">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 06</span>
+                  <h3 class="quality__title">
+                    Ki Jafetz Jesed
+                    <span class="quality__hebrew-title">כִּי־חָפֵץ חֶסֶד הוּא</span>
+                  </h3>
+                  <p class="quality__translit">Ki Jafetz Jésed — Porque Él se deleita en la bondad.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">כִּי־חָפֵץ חֶסֶד הוּא</blockquote>
+                  <p class="quality__verse-translation">Porque Él se complace en la bondad.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ח</span> · Mijá 7:18</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Cada mitzvá crea defensores, pero el jesed construye todo un escuadrón de luz.</li>
+                      <li>Cuando la justicia quiere acusar, esos malajim cuentan delante de Hashem cada acto bondadoso.</li>
+                      <li>Hashem se enamora de quien sostiene a Sus hijos con cariño real.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Busco los rasgos buenos de quien me lastimó y dejo que pesen más que su tropiezo.</li>
+                      <li>Recuerdo cómo ayuda a Am Israel, a la comunidad o a mi familia, y honro esa parte.</li>
+                      <li>Valoro el jesed diario de mi pareja y de mis cercanos; quiero que esa memoria sea la que mande.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-7">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 07</span>
+                  <h3 class="quality__title">
+                    Yashuv Yerajamenu
+                    <span class="quality__hebrew-title">יָשׁוּב יְרַחֲמֵנוּ</span>
+                  </h3>
+                  <p class="quality__translit">Yashuv Yerajaménu — Volverá a compadecerse de nosotros.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">יָשׁוּב יְרַחֲמֵנוּ</blockquote>
+                  <p class="quality__verse-translation">Él volverá a tener misericordia de nosotros.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ט</span> · Mijá 7:19</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem no guarda resentimientos; cuando perdona, vuelve con más ternura.</li>
+                      <li>El baal teshuvá es Su consentido porque trajo luz nueva al mundo.</li>
+                      <li>Su misericordia no se cansa, se renueva todos los días.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Borro cualquier rastro de rencor cuando alguien se acerca con el corazón en la mano.</li>
+                      <li>Abrazo más fuerte a quien regresa y festejo su valentía.</li>
+                      <li>Dejo que la reconciliación nos haga más unidos que antes.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-8">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 08</span>
+                  <h3 class="quality__title">
+                    Yejbosh Avonotenu
+                    <span class="quality__hebrew-title">יִכְבֹּשׁ עֲוֹנֹתֵינוּ</span>
+                  </h3>
+                  <p class="quality__translit">Yijbosh Avonoténu — Sujetará nuestras faltas.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">יִכְבֹּשׁ עֲוֹנֹתֵינוּ</blockquote>
+                  <p class="quality__verse-translation">Sujetará nuestras iniquidades.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ט</span> · Mijá 7:19</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem aplasta mis faltas hasta que ya no me controlan.</li>
+                      <li>Siempre trae a la mesa mi lado luminoso y deja que las mitzvot brillen más que los errores.</li>
+                      <li>Pone mis méritos enfrente y manda las sombras al final de la fila.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Mantengo cerca el bien de esa persona hasta que la ofensa pierde fuerza.</li>
+                      <li>Me entreno a recordar sus favores y detalles nobles antes que el golpe.</li>
+                      <li>Hago que la historia principal entre nosotros sea su bondad, no su falla.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-9">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 09</span>
+                  <h3 class="quality__title">
+                    Vetashlij Bemetzulot Yam
+                    <span class="quality__hebrew-title">וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם</span>
+                  </h3>
+                  <p class="quality__translit">Vetashlij Bemetzulót Yam — Arrojarás a las profundidades del mar.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם כָּל־חַטֹּאתָם</blockquote>
+                  <p class="quality__verse-translation">Lanzarás a las profundidades del mar todos sus pecados.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:י״ט</span> · Mijá 7:19</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem arroja mis faltas al mar profundo para que no me definan más.</li>
+                      <li>Si alguien daña a Su pueblo por gusto, Él se encarga aunque parezca que tenía permiso.</li>
+                      <li>Su justicia nunca se deleita en castigar; solo busca reparar.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>No celebro cuando quien me lastimó sufre; no quiero vivir del dolor ajeno.</li>
+                      <li>Le pido a Hashem que esa persona aprenda y mejore, no que desaparezca.</li>
+                      <li>Suelto la revancha y confío en que Hashem arregla lo que yo no puedo.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-10">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 10</span>
+                  <h3 class="quality__title">
+                    Titen Emet LeYaakov
+                    <span class="quality__hebrew-title">תִּתֵּן אֱמֶת לְיַעֲקֹב</span>
+                  </h3>
+                  <p class="quality__translit">Titen Emet LeYaakov — Darás verdad a Yaakov.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">תִּתֵּן אֱמֶת לְיַעֲקֹב</blockquote>
+                  <p class="quality__verse-translation">Darás verdad a Yaakov.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:כ׳</span> · Mijá 7:20</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem juzga con una verdad limpia, sin favoritismos.</li>
+                      <li>Ve cada detalle con ojos de justicia y corazón compasivo.</li>
+                      <li>Su verdad siempre viene con lealtad: confronta, pero se queda.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Cuando alguien me hiere, reviso la historia sin buscar tener la razón.</li>
+                      <li>Me pregunto: "¿Qué dato me falta?" y bajo la voz antes de juzgar.</li>
+                      <li>Busco un acuerdo justo para que los dos podamos reconstruir la cercanía.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-11">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 11</span>
+                  <h3 class="quality__title">
+                    Jesed LeAvraham
+                    <span class="quality__hebrew-title">חֶסֶד לְאַבְרָהָם</span>
+                  </h3>
+                  <p class="quality__translit">Jesed LeAvraham — Bondad para Abraham.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">חֶסֶד לְאַבְרָהָם</blockquote>
+                  <p class="quality__verse-translation">Bondad para Abraham.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:כ׳</span> · Mijá 7:20</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem suma misericordia aun cuando la justicia ya despertó.</li>
+                      <li>Regala bondad inesperada incluso a quien parece no merecerla.</li>
+                      <li>Su estilo es el mismo de Abraham Avinu: jesed sin límites.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Respondo con compasión aunque tenga argumentos para ser duro.</li>
+                      <li>Dejo que la misericordia ablande mis palabras y mis acciones.</li>
+                      <li>Recuerdo que soy nieto de Abraham y debo dar jesed aun a quien me falló.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-12">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 12</span>
+                  <h3 class="quality__title">
+                    Asher Nishbata
+                    <span class="quality__hebrew-title">אֲשֶׁר נִשְׁבַּעְתָּ</span>
+                  </h3>
+                  <p class="quality__translit">Asher Nishbata — Como juraste.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">אֲשֶׁר נִשְׁבַּעְתָּ לַאֲבוֹתֵינוּ</blockquote>
+                  <p class="quality__verse-translation">Como juraste a nuestros padres.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:כ׳</span> · Mijá 7:20</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Hashem se apiada incluso cuando me quedo sin méritos propios porque recuerda Su juramento a los patriarcas.</li>
+                      <li>Protege a los hijos aunque fallen; quien toca a un hijo toca a Su corazón de padre.</li>
+                      <li>Su alianza ancestral sigue viva y sostiene generación tras generación.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Cuando alguien me hiere, recuerdo de dónde viene y los méritos de su familia.</li>
+                      <li>Me apiado de la chispa divina que trae, aunque hoy no la muestre.</li>
+                      <li>Renuncio a vengarme por respeto a quienes lo formaron y lo aman.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+
+              <article class="quality" id="cualidad-13">
+                <div class="quality__header">
+                  <span class="quality__label">Cualidad 13</span>
+                  <h3 class="quality__title">
+                    Mimei Kedem
+                    <span class="quality__hebrew-title">מִימֵי קֶדֶם</span>
+                  </h3>
+                  <p class="quality__translit">Mimei Kedem — Desde los días antiguos.</p>
+                </div>
+                <div class="quality__verse">
+                  <blockquote lang="he" dir="rtl">מִימֵי קֶדֶם</blockquote>
+                  <p class="quality__verse-translation">Desde los días de antaño.</p>
+                  <small><span lang="he" dir="rtl">מיכה ז׳:כ׳</span> · Mijá 7:20</small>
+                </div>
+                <div class="quality__lists">
+                  <div class="quality__list">
+                    <h3>Así actúa Hashem</h3>
+                    <ul>
+                      <li>Cuando ya no quedan méritos patriarcales, Hashem junta mis buenas acciones desde que era niño.</li>
+                      <li>Recuerda la pureza de mis primeros pasos para salvarme de decretos duros.</li>
+                      <li>Su memoria busca la bondad antigua para volverme a levantar.</li>
+                    </ul>
+                  </div>
+                  <div class="quality__list">
+                    <h3>Cómo lo vivo hoy</h3>
+                    <ul>
+                      <li>Antes de juzgar, recuerdo momentos en que esa persona fue noble y generosa.</li>
+                      <li>Agradezco cada día algún gesto suyo, aunque sea de hace años.</li>
+                      <li>Dejo que sus primeros méritos iluminen la manera en que lo trato hoy.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="closing" aria-labelledby="closing-title">
+            <h2 id="closing-title">Del estudio a la práctica diaria</h2>
+            <p>
+              El Tomer Devorá es un entrenamiento del corazón. Abraza una cualidad por día, nómbrala en hebreo,
+              imagina cómo Hashem la vive contigo y deja que se traduzca en una actitud concreta. Cuando
+              termines las trece, vuelve a empezar: cada vuelta suaviza otro rincón del alma.
+            </p>
+            <div class="closing__grid">
+              <article class="closing__card">
+                <strong>Respiración de misericordia</strong>
+                Inhala contando hasta cuatro y di en voz baja el nombre de la midá; exhala en seis tiempos y
+                suelta la tensión del pecho. Deja que el cuerpo también haga jesed.
+              </article>
+              <article class="closing__card">
+                <strong>Mapa relacional</strong>
+                Dibuja a tu familia y amigos cercanos; junto a cada nombre anota la midá que quieres practicar
+                con esa persona esta semana.
+              </article>
+              <article class="closing__card">
+                <strong>Bitácora nocturna</strong>
+                Antes de dormir, repasa tu día: ¿en qué momento imitaste a Hashem? ¿Dónde te gustaría mejorar
+                mañana? Escribe dos líneas a modo de promesa.
+              </article>
+              <article class="closing__card">
+                <strong>Aprendizaje en pareja</strong>
+                Lee en voz alta una cualidad con tu pareja o un amigo; cuenten un caso real y elijan una acción
+                compartida para el día siguiente.
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <strong>Abraham Bentolila · Joe Sitt</strong>
+      </footer>
+
+      <script>
+        (function () {
+          const links = Array.from(document.querySelectorAll("nav.toc a"));
+          const sections = links
+            .map((link) => document.querySelector(link.getAttribute("href")))
+            .filter(Boolean);
+
+          if (!("IntersectionObserver" in window) || sections.length === 0) {
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const id = entry.target.getAttribute("id");
+                const activeLink = links.find((link) => link.getAttribute("href") === `#${id}`);
+                if (!activeLink) {
+                  return;
+                }
+                if (entry.isIntersecting) {
+                  links.forEach((link) => link.removeAttribute("aria-current"));
+                  activeLink.setAttribute("aria-current", "true");
+                }
+              });
+            },
+            { rootMargin: "-45% 0px -45% 0px", threshold: 0.1 }
+          );
+
+          sections.forEach((section) => observer.observe(section));
+        })();
+      </script>
+    </main>
+  </body>
+</html>
