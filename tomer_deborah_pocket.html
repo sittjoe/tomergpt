@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tomer Devorá · Librito pocket size</title>
+    <meta
+      name="description"
+      content="Librito pocket size imprimible con las trece midot del Tomer Devorá, rutina diaria y checklist de 13 días."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Heebo:wght@500&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: only light;
+        font-size: 16px;
+        --bg: #f6f1e8;
+        --paper: #ffffff;
+        --ink: #231a12;
+        --muted: #5c5042;
+        --accent: #2e3f87;
+        --accent-soft: rgba(46, 63, 135, 0.12);
+        --gold: #b48c4d;
+        --border: rgba(46, 63, 135, 0.25);
+      }
+
+      @page {
+        size: 105mm 148mm;
+        margin: 8mm;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+          background: none;
+        }
+        .screen-note {
+          display: none !important;
+        }
+        .page {
+          box-shadow: none;
+          border-radius: 0;
+          width: auto;
+          min-height: auto;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        display: grid;
+        justify-items: center;
+        gap: 1.2rem;
+        padding: 1.2rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "EB Garamond", serif;
+        color: var(--accent);
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .screen-note {
+        width: min(100%, 860px);
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 1rem 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem 1.2rem;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 18px 32px rgba(30, 32, 46, 0.15);
+      }
+
+      .screen-note strong {
+        font-family: "EB Garamond", serif;
+        color: var(--accent);
+        font-size: 1.2rem;
+      }
+
+      .screen-note p {
+        max-width: 60ch;
+      }
+
+      .screen-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.65rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        cursor: pointer;
+      }
+
+      .btn--primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .page {
+        width: min(100%, 105mm);
+        min-height: 148mm;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 1rem 1rem 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        box-shadow: 0 16px 32px rgba(30, 32, 46, 0.18);
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .page:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .page__eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+
+      .cover {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+      }
+
+      .cover__title {
+        font-size: 1.9rem;
+        line-height: 1.1;
+      }
+
+      .cover__subtitle {
+        font-size: 1rem;
+        max-width: 26ch;
+      }
+
+      .cover__hebrew {
+        font-family: "Heebo", sans-serif;
+        font-size: 1.35rem;
+        color: var(--gold);
+        direction: rtl;
+      }
+
+      .page h2 {
+        font-size: 1.3rem;
+      }
+
+      .steps {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.35rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .midot-list {
+        display: grid;
+        gap: 0.45rem;
+      }
+
+      .midah {
+        background: var(--accent-soft);
+        border-radius: 12px;
+        padding: 0.45rem 0.6rem;
+        display: grid;
+        gap: 0.2rem;
+      }
+
+      .midah-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.4rem;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gold);
+      }
+
+      .midah-head strong {
+        font-family: "EB Garamond", serif;
+        font-size: 0.95rem;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+        text-transform: none;
+      }
+
+      .midah-hebrew {
+        font-family: "Heebo", sans-serif;
+        direction: rtl;
+        text-align: right;
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+
+      .midah p {
+        font-size: 0.88rem;
+      }
+
+      .practice-block {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.6rem 0.7rem;
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .practice-block strong {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+      }
+
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.35rem 0.8rem;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .check-box {
+        width: 0.55rem;
+        height: 0.55rem;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+      }
+
+      .notes-lines {
+        display: grid;
+        gap: 0.35rem;
+        margin-top: 0.3rem;
+      }
+
+      .notes-line {
+        border-bottom: 1px solid var(--border);
+        height: 0.9rem;
+      }
+
+      .page__footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(35, 26, 15, 0.5);
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 0.8rem;
+        }
+        .page {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen-note" id="instrucciones">
+      <div>
+        <strong>Librito pocket size</strong>
+        <p>
+          Imprime en A6 (105x148 mm) o medio carta. Usa escala 100% y doble cara si esta disponible. Luego engrapa o
+          dobla al centro.
+        </p>
+      </div>
+      <div class="screen-actions">
+        <button class="btn btn--primary" id="printBooklet">Imprimir librito</button>
+        <a class="btn" href="tomer_deborah_app.html">Volver a la app</a>
+      </div>
+    </div>
+
+    <section class="page cover">
+      <span class="page__eyebrow">Tomer Devorá</span>
+      <h1 class="cover__title">Librito pocket size</h1>
+      <p class="cover__subtitle">13 midot en version breve para practicar misericordia a diario.</p>
+      <p>Guarda este recordatorio en tu bolsillo y abre una pagina cada dia.</p>
+      <div class="cover__hebrew">מִי־אֵל כָּמוֹךָ</div>
+      <div class="page__footer">
+        <span>Edicion breve</span>
+        <span>1 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Guia rapida</span>
+      <h2>Como usar este librito</h2>
+      <ol class="steps">
+        <li>Lee una midah por dia y marca el checklist.</li>
+        <li>Practica una accion concreta en las proximas 24 horas.</li>
+        <li>Anota un detalle al final del dia para reforzar el aprendizaje.</li>
+      </ol>
+      <div class="practice-block">
+        <strong>Ritmo diario</strong>
+        <p><strong>Amanecer:</strong> lee el pasuk y pon una intencion.</p>
+        <p><strong>Durante:</strong> busca un gesto de misericordia para esa midah.</p>
+        <p><strong>Noche:</strong> registra lo aprendido en dos lineas.</p>
+      </div>
+      <div class="page__footer">
+        <span>Instrucciones</span>
+        <span>2 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Midot 1-4</span>
+      <h2>Trece espejos (1-4)</h2>
+      <div class="midot-list">
+        <div class="midah">
+          <div class="midah-head"><span>01</span><strong>Mi El Kamoká</strong></div>
+          <div class="midah-hebrew">מִי־אֵל כָּמוֹךָ</div>
+          <p>Respira antes de responder y sostiene al otro con calma.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>02</span><strong>Nosé Avón</strong></div>
+          <div class="midah-hebrew">נֹשֵׂא עָוֹן</div>
+          <p>Da tiempo genuino para reparar sin cerrar la puerta.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>03</span><strong>Ve'over Al Pesha</strong></div>
+          <div class="midah-hebrew">וְעוֹבֵר עַל־פֶּשַׁע</div>
+          <p>Tiende el puente primero y crea un nuevo inicio.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>04</span><strong>Lish'erit Najalato</strong></div>
+          <div class="midah-hebrew">לִשְׁאֵרִית נַחֲלָתוֹ</div>
+          <p>Recuerda que somos familia de alma y evita humillar.</p>
+        </div>
+      </div>
+      <div class="page__footer">
+        <span>Resumen</span>
+        <span>3 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Midot 5-8</span>
+      <h2>Trece espejos (5-8)</h2>
+      <div class="midot-list">
+        <div class="midah">
+          <div class="midah-head"><span>05</span><strong>Lo Hejézik La'ad Apó</strong></div>
+          <div class="midah-hebrew">לֹא־הֶחֱזִיק לָעַד אַפּוֹ</div>
+          <p>Suelta la ira para que la compasion gobierne.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>06</span><strong>Ki Jafetz Jesed</strong></div>
+          <div class="midah-hebrew">כִּי־חָפֵץ חֶסֶד הוּא</div>
+          <p>Haz memoria del bien y amplifica lo positivo.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>07</span><strong>Yashuv Yerajamenu</strong></div>
+          <div class="midah-hebrew">יָשׁוּב יְרַחֲמֵנוּ</div>
+          <p>Celebra la teshuva y acompana con calidez.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>08</span><strong>Yijbosh Avonotenu</strong></div>
+          <div class="midah-hebrew">יִכְבֹּשׁ עֲוֹנֹתֵינוּ</div>
+          <p>Destaca los meritos para cambiar la narrativa.</p>
+        </div>
+      </div>
+      <div class="page__footer">
+        <span>Resumen</span>
+        <span>4 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Midot 9-13</span>
+      <h2>Trece espejos (9-13)</h2>
+      <div class="midot-list">
+        <div class="midah">
+          <div class="midah-head"><span>09</span><strong>Vetashlij Bemetzulot Yam</strong></div>
+          <div class="midah-hebrew">וְתַשְׁלִיךְ בִּמְצוּלוֹת יָם</div>
+          <p>Elige misericordia por encima de venganza.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>10</span><strong>Titen Emet LeYaakov</strong></div>
+          <div class="midah-hebrew">תִּתֵּן אֱמֶת לְיַעֲקֹב</div>
+          <p>Di la verdad con lealtad y presencia constante.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>11</span><strong>Jesed LeAvraham</strong></div>
+          <div class="midah-hebrew">חֶסֶד לְאַבְרָהָם</div>
+          <p>Responde con bondad incluso cuando cuesta.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>12</span><strong>Asher Nishbata</strong></div>
+          <div class="midah-hebrew">אֲשֶׁר נִשְׁבַּעְתָּ</div>
+          <p>Honra el linaje y agradece a quienes formaron al otro.</p>
+        </div>
+        <div class="midah">
+          <div class="midah-head"><span>13</span><strong>Mimei Kedem</strong></div>
+          <div class="midah-hebrew">מִימֵי קֶדֶם</div>
+          <p>Recuerda las bondades pasadas y trae luz al presente.</p>
+        </div>
+      </div>
+      <div class="page__footer">
+        <span>Resumen</span>
+        <span>5 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Practica diaria</span>
+      <h2>Rituales de misericordia</h2>
+      <div class="practice-block">
+        <strong>Amanecer</strong>
+        <p>Di el pasuk en voz baja y escribe una intencion de compasion.</p>
+      </div>
+      <div class="practice-block">
+        <strong>Durante el dia</strong>
+        <p>Busca una accion concreta: escuchar, sostener, perdonar, ayudar.</p>
+      </div>
+      <div class="practice-block">
+        <strong>Al anochecer</strong>
+        <p>Registra una linea de gratitud y una leccion del dia.</p>
+      </div>
+      <div class="page__footer">
+        <span>Ritmo diario</span>
+        <span>6 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Checklist</span>
+      <h2>Mis 13 dias</h2>
+      <div class="checklist">
+        <div class="check-item"><span class="check-box"></span>Dia 1</div>
+        <div class="check-item"><span class="check-box"></span>Dia 2</div>
+        <div class="check-item"><span class="check-box"></span>Dia 3</div>
+        <div class="check-item"><span class="check-box"></span>Dia 4</div>
+        <div class="check-item"><span class="check-box"></span>Dia 5</div>
+        <div class="check-item"><span class="check-box"></span>Dia 6</div>
+        <div class="check-item"><span class="check-box"></span>Dia 7</div>
+        <div class="check-item"><span class="check-box"></span>Dia 8</div>
+        <div class="check-item"><span class="check-box"></span>Dia 9</div>
+        <div class="check-item"><span class="check-box"></span>Dia 10</div>
+        <div class="check-item"><span class="check-box"></span>Dia 11</div>
+        <div class="check-item"><span class="check-box"></span>Dia 12</div>
+        <div class="check-item"><span class="check-box"></span>Dia 13</div>
+      </div>
+      <div class="page__footer">
+        <span>Seguimiento</span>
+        <span>7 / 8</span>
+      </div>
+    </section>
+
+    <section class="page">
+      <span class="page__eyebrow">Bitacora</span>
+      <h2>Notas rapidas</h2>
+      <p>Escribe aqui una palabra clave o una gratitud de cada dia.</p>
+      <div class="notes-lines">
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+      </div>
+      <p>Que tu misericordia sea el puente hacia la paz.</p>
+      <div class="page__footer">
+        <span>Bitacora</span>
+        <span>8 / 8</span>
+      </div>
+    </section>
+
+    <script>
+      const printBtn = document.getElementById("printBooklet");
+      printBtn.addEventListener("click", () => {
+        window.print();
+      });
+    </script>
+  </body>
+</html>
