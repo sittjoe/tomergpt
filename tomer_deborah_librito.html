@@ -207,15 +207,22 @@
       }
 
       h2 {
-        font-size: 1.25rem;
-        line-height: 1.04;
+        font-size: 1.34rem;
+        line-height: 1.06;
+        font-weight: 700;
       }
 
       p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.79rem;
-        line-height: 1.35;
+        font-size: 0.84rem;
+        line-height: 1.46;
+      }
+
+      p strong,
+      .screen-note strong {
+        color: var(--accent);
+        font-weight: 700;
       }
 
       .hebrew {
@@ -314,6 +321,13 @@
         position: relative;
       }
 
+      .pasuk p:last-child {
+        font-family: "EB Garamond", serif;
+        font-size: 0.98rem;
+        line-height: 1.28;
+        color: color-mix(in srgb, var(--page-accent) 78%, #453e35 22%);
+      }
+
       .pasuk::before {
         content: "";
         position: absolute;
@@ -327,18 +341,33 @@
       }
 
       .label {
-        font-size: 0.62rem;
+        font-size: 0.64rem;
         text-transform: uppercase;
-        letter-spacing: 0.13em;
+        letter-spacing: 0.14em;
         color: color-mix(in srgb, var(--page-accent) 78%, #4a4136 22%);
-        font-weight: 600;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .label::before {
+        content: "";
+        width: 0.22rem;
+        height: 0.22rem;
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--page-accent) 72%, #6a5947 28%);
       }
 
       .block {
         border-top: 1px dashed color-mix(in srgb, var(--page-accent) 30%, #b7ad9f 70%);
         padding-top: 0.08in;
         display: grid;
-        gap: 0.03in;
+        gap: 0.04in;
+      }
+
+      .block p:last-child {
+        text-wrap: pretty;
       }
 
       .block.action {
@@ -351,6 +380,11 @@
 
       .block.action .label::after {
         content: " · Accion de hoy";
+      }
+
+      .block.action p:last-child {
+        font-weight: 600;
+        color: color-mix(in srgb, var(--page-accent) 70%, #2f2b27 30%);
       }
 
       .page[data-band="a"] {
@@ -793,6 +827,24 @@
           return label && label.textContent.trim() === "En casa";
         });
         if (actionBlock) actionBlock.classList.add("action");
+      });
+
+      const emphasisRules = [
+        /\bteshuvá\b/gi,
+        /\bjésed\b/gi,
+        /\btefilá\b/gi,
+        /\bmitzv[áa]s?\b/gi,
+        /\bShejiná\b/gi,
+        /ה׳/g
+      ];
+
+      const textParagraphs = Array.from(document.querySelectorAll(".block p:last-child, .cover p, .screen-note"));
+      textParagraphs.forEach((node) => {
+        let html = node.innerHTML;
+        emphasisRules.forEach((rule) => {
+          html = html.replace(rule, (match) => `<strong>${match}</strong>`);
+        });
+        node.innerHTML = html;
       });
 
       const modeButtons = Array.from(document.querySelectorAll("[data-ink-mode]"));
