@@ -183,15 +183,16 @@
       }
 
       .eyebrow {
-        font-size: 0.64rem;
+        font-size: 0.62rem;
         text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: var(--gold);
-        font-weight: 500;
+        letter-spacing: 0.22em;
+        color: color-mix(in srgb, var(--page-accent) 70%, #7d6c58 30%);
+        font-weight: 700;
         align-self: flex-start;
-        padding: 0.08rem 0.4rem;
+        padding: 0.12rem 0.46rem;
         border-radius: 999px;
-        background: color-mix(in srgb, var(--page-accent) 12%, #fff 88%);
+        background: color-mix(in srgb, var(--page-accent) 14%, #fff 86%);
+        border: 1px solid color-mix(in srgb, var(--page-accent) 26%, #d2c3b2 74%);
       }
 
       h1,
@@ -203,21 +204,24 @@
       }
 
       h1 {
-        font-size: 1.95rem;
-        line-height: 1.02;
+        font-size: 2.12rem;
+        line-height: 1.01;
+        letter-spacing: 0.02em;
       }
 
       h2 {
-        font-size: 1.34rem;
-        line-height: 1.06;
+        font-size: 1.42rem;
+        line-height: 1.08;
         font-weight: 700;
+        letter-spacing: 0.01em;
+        text-wrap: balance;
       }
 
       p {
         margin: 0;
         color: var(--muted);
-        font-size: 0.84rem;
-        line-height: 1.46;
+        font-size: 0.86rem;
+        line-height: 1.5;
       }
 
       p strong,
@@ -230,17 +234,31 @@
         direction: rtl;
         text-align: right;
         font-family: "Heebo", sans-serif;
-        font-size: 1.01rem;
+        font-size: 1.08rem;
         color: var(--gold);
+        padding: 0.08rem 0.5rem;
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--page-accent) 8%, #fff 92%);
+        border-right: 2px solid color-mix(in srgb, var(--page-accent) 38%, #b99f7b 62%);
       }
 
       .cover {
         text-align: center;
         justify-content: center;
+        gap: 0.15in;
       }
 
       .cover .hebrew {
         text-align: center;
+        border-right: none;
+        border-left: 2px solid color-mix(in srgb, var(--accent) 38%, #b99f7b 62%);
+      }
+
+      .cover h2 {
+        font-size: 1.12rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--accent) 72%, #584a3c 28%);
       }
 
       .cover-motif {
@@ -297,8 +315,9 @@
       .cover-sub {
         font-size: 0.8rem;
         color: color-mix(in srgb, var(--accent) 68%, #4e4235 32%);
-        letter-spacing: 0.06em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+        font-weight: 600;
       }
 
       .section-divider {
@@ -366,17 +385,19 @@
         height: 0.22rem;
         border-radius: 50%;
         background: color-mix(in srgb, var(--page-accent) 72%, #6a5947 28%);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--page-accent) 14%, #fff 86%);
       }
 
       .block {
         border-top: 1px dashed color-mix(in srgb, var(--page-accent) 30%, #b7ad9f 70%);
         padding-top: 0.08in;
         display: grid;
-        gap: 0.04in;
+        gap: 0.045in;
       }
 
       .block p:last-child {
         text-wrap: pretty;
+        max-width: 62ch;
       }
 
       .block.action {
@@ -394,6 +415,16 @@
       .block.action p:last-child {
         font-weight: 600;
         color: color-mix(in srgb, var(--page-accent) 70%, #2f2b27 30%);
+      }
+
+      .page-head {
+        display: grid;
+        gap: 0.06in;
+        padding-bottom: 0.02in;
+      }
+
+      .page-head h2 {
+        margin-top: 0.01in;
       }
 
       .page[data-band="a"] {
@@ -793,12 +824,28 @@
         page.dataset.progress = `${index + 1}/13`;
         page.dataset.band = bands[Math.floor(index / 3) % bands.length];
 
+        const eyebrow = page.querySelector(".eyebrow");
         const title = page.querySelector("h2");
+        const hebrew = page.querySelector(".hebrew");
         if (!title) return;
+
+        if (eyebrow && hebrew) {
+          const head = document.createElement("header");
+          head.className = "page-head";
+          page.insertBefore(head, eyebrow);
+          head.appendChild(eyebrow);
+          head.appendChild(title);
+          head.appendChild(hebrew);
+        }
 
         const divider = document.createElement("hr");
         divider.className = "section-divider";
-        title.insertAdjacentElement("afterend", divider);
+        const headForDivider = page.querySelector(".page-head");
+        if (headForDivider) {
+          headForDivider.insertAdjacentElement("afterend", divider);
+        } else {
+          title.insertAdjacentElement("afterend", divider);
+        }
 
         const actionBlock = Array.from(page.querySelectorAll(".block")).find((block) => {
           const label = block.querySelector(".label");
