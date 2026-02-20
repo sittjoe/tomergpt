@@ -9,20 +9,268 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Heebo:wght@500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet" />
     <style>
-      :root { color-scheme: only light; font-size: 16px; --bg:#f8f3ea; --paper:#fff; --ink:#231a0f; --muted:#615546; --accent:#2f3c88; --accent-soft:rgba(47,60,136,0.08); --gold:#bd8c3b; --border:rgba(47,60,136,0.28);} 
-      @page { size: 6in 6in; margin: 0.3in; }
-      @media print { body { margin:0; padding:0; background:none; } .screen-note{display:none!important;} .page{box-shadow:none; margin:0; width:auto; min-height:auto; border-radius:0;} }
-      * { box-sizing: border-box; }
-      body { margin:0; font-family:"Work Sans",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--ink); display:grid; gap:0.9rem; justify-items:center; padding:1rem; }
-      .screen-note { width:min(100%,6.9in); border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,0.94); padding:0.7rem 0.9rem; font-size:0.82rem; color:var(--muted);}
-      .page { width:min(100%,6.9in); min-height:6.9in; background:var(--paper); border:1px solid var(--border); border-radius:16px; padding:0.38in; box-shadow:0 14px 28px rgba(35,26,15,0.12); display:flex; flex-direction:column; gap:0.14in; break-after:page; page-break-after:always; }
-      .page:last-of-type { break-after:auto; page-break-after:auto; }
-      .eyebrow { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.16em; color:var(--gold);}
-      h1,h2,h3 { margin:0; color:var(--accent); font-family:"EB Garamond",serif; } h1{font-size:1.9rem;line-height:1.04;} h2{font-size:1.22rem;line-height:1.05;} p{margin:0;color:var(--muted);font-size:0.79rem;line-height:1.35;}
-      .hebrew { direction:rtl; text-align:right; font-family:"Heebo",sans-serif; font-size:1rem; color:var(--gold);} .cover{text-align:center; justify-content:center;} .cover .hebrew{text-align:center;}
-      .pasuk { background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:10px; padding:0.1in;}
-      .label { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); font-weight:600;}
-      .block { border-top:1px dashed var(--border); padding-top:0.08in; display:grid; gap:0.03in;}
+      :root {
+        color-scheme: only light;
+        font-size: 16px;
+        --bg: #f8f3ea;
+        --paper: #fffdf8;
+        --ink: #231a0f;
+        --muted: #615546;
+        --accent: #2f3c88;
+        --gold: #bd8c3b;
+        --border: rgba(47, 60, 136, 0.28);
+      }
+
+      @page {
+        size: 6in 6in;
+        margin: 0.28in;
+      }
+
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+          background: none;
+        }
+
+        .screen-note {
+          display: none !important;
+        }
+
+        .page {
+          box-shadow: none;
+          margin: 0;
+          width: auto;
+          min-height: auto;
+          border-radius: 0;
+          border-color: rgba(40, 40, 40, 0.35);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", system-ui, -apple-system, sans-serif;
+        background:
+          radial-gradient(circle at 20% 10%, rgba(189, 140, 59, 0.08), transparent 40%),
+          radial-gradient(circle at 80% 90%, rgba(47, 60, 136, 0.06), transparent 36%),
+          var(--bg);
+        color: var(--ink);
+        display: grid;
+        gap: 0.9rem;
+        justify-items: center;
+        padding: 1rem;
+      }
+
+      .screen-note {
+        width: min(100%, 6.9in);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.94);
+        padding: 0.7rem 0.9rem;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .page {
+        --page-accent: var(--accent);
+        width: min(100%, 6.9in);
+        min-height: 6.9in;
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.98), rgba(247, 243, 234, 0.72)),
+          repeating-linear-gradient(0deg, rgba(47, 60, 136, 0.025), rgba(47, 60, 136, 0.025) 1px, transparent 1px, transparent 15px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 0.34in;
+        box-shadow: 0 14px 28px rgba(35, 26, 15, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 0.12in;
+        position: relative;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -0.8in;
+        right: -0.72in;
+        width: 1.8in;
+        height: 1.8in;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 55%),
+          radial-gradient(circle, color-mix(in srgb, var(--page-accent) 22%, #ffffff 78%), rgba(255, 255, 255, 0) 70%);
+        pointer-events: none;
+      }
+
+      .page::after {
+        content: attr(data-progress);
+        position: absolute;
+        right: 0.26in;
+        bottom: 0.22in;
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--page-accent) 70%, #3a342f 30%);
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .cover::before,
+      .cover::after {
+        display: none;
+      }
+
+      .eyebrow {
+        font-size: 0.64rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        color: var(--accent);
+        font-family: "EB Garamond", serif;
+      }
+
+      h1 {
+        font-size: 1.95rem;
+        line-height: 1.02;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        line-height: 1.04;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.79rem;
+        line-height: 1.35;
+      }
+
+      .hebrew {
+        direction: rtl;
+        text-align: right;
+        font-family: "Heebo", sans-serif;
+        font-size: 1.01rem;
+        color: var(--gold);
+      }
+
+      .cover {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cover .hebrew {
+        text-align: center;
+      }
+
+      .midah-icon {
+        width: 0.58in;
+        height: 0.58in;
+        border-radius: 14px;
+        border: 1px solid color-mix(in srgb, var(--page-accent) 45%, #ffffff 55%);
+        background:
+          linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 20%, #ffffff 80%), rgba(255, 255, 255, 0.7));
+        display: grid;
+        place-items: center;
+      }
+
+      .midah-icon span {
+        display: block;
+        width: 0.22in;
+        height: 0.22in;
+        border-radius: 50%;
+        border: 2px solid color-mix(in srgb, var(--page-accent) 78%, #4d453d 22%);
+        position: relative;
+      }
+
+      .midah-icon span::before,
+      .midah-icon span::after {
+        content: "";
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 2px;
+      }
+
+      .midah-icon span::before {
+        width: 0.11in;
+        height: 2px;
+        background: color-mix(in srgb, var(--page-accent) 70%, #2f2f2f 30%);
+      }
+
+      .midah-icon span::after {
+        width: 2px;
+        height: 0.11in;
+        background: color-mix(in srgb, var(--page-accent) 70%, #2f2f2f 30%);
+      }
+
+      .pasuk {
+        background: color-mix(in srgb, var(--page-accent) 9%, #ffffff 91%);
+        border-left: 3px solid var(--page-accent);
+        border-radius: 10px;
+        padding: 0.1in;
+        position: relative;
+      }
+
+      .pasuk::before {
+        content: "";
+        position: absolute;
+        right: 0.08in;
+        top: 0.08in;
+        width: 0.13in;
+        height: 0.13in;
+        border: 1px solid color-mix(in srgb, var(--page-accent) 55%, #8f7b66 45%);
+        transform: rotate(45deg);
+        border-radius: 1px;
+      }
+
+      .label {
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: color-mix(in srgb, var(--page-accent) 78%, #4a4136 22%);
+        font-weight: 600;
+      }
+
+      .block {
+        border-top: 1px dashed color-mix(in srgb, var(--page-accent) 30%, #b7ad9f 70%);
+        padding-top: 0.08in;
+        display: grid;
+        gap: 0.03in;
+      }
+
+      .page[data-band="a"] {
+        --page-accent: #2f3c88;
+      }
+
+      .page[data-band="b"] {
+        --page-accent: #275f55;
+      }
+
+      .page[data-band="c"] {
+        --page-accent: #7a4a22;
+      }
+
+      .page[data-band="d"] {
+        --page-accent: #5b356f;
+      }
     </style>
   </head>
   <body>
@@ -360,5 +608,24 @@
         <p>Organiza una noche de anécdotas positivas. Cada persona narra una escena antigua donde un judío la inspiró. Saldrán todos con ganas de imitarlo.</p>
       </div>
     </section>
+    <script>
+      const qualityPages = Array.from(document.querySelectorAll(".page:not(.cover)"));
+      const bands = ["a", "b", "c", "d"];
+
+      qualityPages.forEach((page, index) => {
+        page.dataset.progress = `${index + 1}/13`;
+        page.dataset.band = bands[Math.floor(index / 3) % bands.length];
+
+        const title = page.querySelector("h2");
+        if (!title) return;
+
+        const icon = document.createElement("div");
+        icon.className = "midah-icon";
+        icon.setAttribute("aria-hidden", "true");
+        icon.innerHTML = "<span></span>";
+
+        title.insertAdjacentElement("beforebegin", icon);
+      });
+    </script>
   </body>
 </html>
