@@ -144,19 +144,20 @@
         overflow: hidden;
         break-after: page;
         page-break-after: always;
+        outline: 1px solid color-mix(in srgb, var(--page-accent) 16%, #e7dccf 84%);
+        outline-offset: -10px;
       }
 
       .page::before {
         content: "";
         position: absolute;
-        top: -0.8in;
-        right: -0.72in;
-        width: 1.8in;
-        height: 1.8in;
-        border-radius: 50%;
-        background:
-          radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 55%),
-          radial-gradient(circle, color-mix(in srgb, var(--page-accent) 22%, #ffffff 78%), rgba(255, 255, 255, 0) 70%);
+        top: 0.18in;
+        right: 0.2in;
+        width: 0.9in;
+        height: 0.9in;
+        border-top: 1px solid color-mix(in srgb, var(--page-accent) 30%, #d6cabd 70%);
+        border-right: 1px solid color-mix(in srgb, var(--page-accent) 30%, #d6cabd 70%);
+        border-radius: 0 12px 0 0;
         pointer-events: none;
       }
 
@@ -242,18 +243,62 @@
         text-align: center;
       }
 
-      .cover-art {
+      .cover-motif {
         width: 100%;
         border-radius: 14px;
-        border: 1px solid rgba(47, 60, 136, 0.22);
-        background: linear-gradient(140deg, rgba(47, 60, 136, 0.12), rgba(189, 140, 59, 0.14));
-        padding: 0.08in;
+        border: 1px solid color-mix(in srgb, var(--accent) 24%, #d9cbba 76%);
+        padding: 0.14in 0.1in;
+        display: grid;
+        gap: 0.08in;
       }
 
-      .cover-art svg {
-        display: block;
-        width: 100%;
-        height: 1.45in;
+      .cover-motif span {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 46%, #bd8c3b 54%), transparent);
+      }
+
+      .cover-motif span:nth-of-type(2) {
+        transform: scaleX(0.85);
+      }
+
+      .cover-motif span:nth-of-type(3) {
+        transform: scaleX(0.72);
+      }
+
+      .cover-motif strong {
+        font-family: "EB Garamond", serif;
+        font-size: 1.04rem;
+        color: var(--accent);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .cover-motif em {
+        font-style: normal;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--accent) 60%, #8b7d6f 40%);
+      }
+
+      .cover-motif .motif-center {
+        display: grid;
+        place-items: center;
+        gap: 0.05in;
+      }
+
+      .cover-motif .motif-mark {
+        width: 0.18in;
+        height: 0.18in;
+        border: 1px solid color-mix(in srgb, var(--accent) 45%, #a9947d 55%);
+        transform: rotate(45deg);
+      }
+
+      .cover-sub {
+        font-size: 0.8rem;
+        color: color-mix(in srgb, var(--accent) 68%, #4e4235 32%);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
 
       .section-divider {
@@ -275,42 +320,6 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-      }
-
-      .midah-icon {
-        width: 0.46in;
-        height: 0.46in;
-        border-radius: 12px;
-        border: 1px solid color-mix(in srgb, var(--page-accent) 45%, #ffffff 55%);
-        background:
-          linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 20%, #ffffff 80%), rgba(255, 255, 255, 0.7));
-        display: grid;
-        place-items: center;
-        margin-top: -0.02in;
-      }
-
-      .midah-icon span {
-        font-size: 1rem;
-        font-weight: 700;
-        color: color-mix(in srgb, var(--page-accent) 80%, #3e362f 20%);
-        line-height: 1;
-      }
-
-      .midah-icon svg {
-        width: 100%;
-        height: 100%;
-      }
-
-      .midah-icon .stroke {
-        fill: none;
-        stroke: color-mix(in srgb, var(--page-accent) 80%, #3e362f 20%);
-        stroke-width: 1.35;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .midah-icon .fill {
-        fill: color-mix(in srgb, var(--page-accent) 28%, #fff 72%);
       }
 
       .pasuk {
@@ -436,24 +445,18 @@
       <span class="eyebrow">Libro pocket</span>
       <h1>Tomer Devorá</h1>
       <h2>Trece reflejos para el corazón</h2>
-      <div class="cover-art" aria-hidden="true">
-        <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#2f3c88" stop-opacity="0.95" />
-              <stop offset="100%" stop-color="#bd8c3b" stop-opacity="0.92" />
-            </linearGradient>
-          </defs>
-          <rect x="0" y="0" width="520" height="180" rx="16" fill="url(#g1)" opacity="0.12" />
-          <path d="M20 140 C90 70, 140 70, 210 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
-          <path d="M170 140 C240 45, 300 45, 360 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
-          <path d="M300 140 C360 78, 425 78, 500 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
-          <circle cx="260" cy="62" r="22" fill="#bd8c3b" fill-opacity="0.34" />
-          <circle cx="260" cy="62" r="12" fill="#2f3c88" fill-opacity="0.42" />
-          <path d="M248 62h24M260 50v24" stroke="#fff" stroke-opacity="0.8" stroke-width="1.8" />
-        </svg>
+      <div class="cover-motif" aria-hidden="true">
+        <span></span>
+        <div class="motif-center">
+          <em>edicion pocket</em>
+          <strong>13 MIDOT</strong>
+          <div class="motif-mark"></div>
+        </div>
+        <span></span>
+        <span></span>
       </div>
       <p class="hebrew">יָשׁוּב יְרַחֲמֵנוּ יִכְבֹּשׁ עֲוֹנֹתֵינוּ</p>
+      <p class="cover-sub">Guia breve de practica diaria</p>
       <p>Mantén este libro junto a tu sidur o en la mesa del comedor. Cada día, deja que una midá guíe tus conversaciones.</p>
       <p>Refuá shelemá y berajá para Yaakov Shemaria.</p>
     </section>
@@ -786,37 +789,12 @@
       const qualityPages = Array.from(document.querySelectorAll(".page:not(.cover)"));
       const bands = ["a", "b", "c", "d"];
 
-      const makeRosette = (index) => {
-        const petals = 6 + (index % 4);
-        const radius = 9;
-        const points = [];
-        for (let i = 0; i < petals * 2; i += 1) {
-          const angle = (Math.PI * i) / petals;
-          const r = i % 2 === 0 ? radius : radius * 0.55;
-          points.push(`${12 + Math.cos(angle) * r},${12 + Math.sin(angle) * r}`);
-        }
-        return `
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polygon class="fill" points="${points.join(" ")}"></polygon>
-            <polygon class="stroke" points="${points.join(" ")}"></polygon>
-            <circle class="stroke" cx="12" cy="12" r="2.6"></circle>
-          </svg>
-        `;
-      };
-
       qualityPages.forEach((page, index) => {
         page.dataset.progress = `${index + 1}/13`;
         page.dataset.band = bands[Math.floor(index / 3) % bands.length];
 
         const title = page.querySelector("h2");
         if (!title) return;
-
-        const icon = document.createElement("div");
-        icon.className = "midah-icon";
-        icon.setAttribute("aria-hidden", "true");
-        icon.innerHTML = makeRosette(index);
-
-        title.insertAdjacentElement("beforebegin", icon);
 
         const divider = document.createElement("hr");
         divider.className = "section-divider";
