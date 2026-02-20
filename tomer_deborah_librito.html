@@ -33,7 +33,9 @@
           background: none;
         }
 
-        .screen-note {
+        .screen-note,
+        .toolbox,
+        .preflight-report {
           display: none !important;
         }
 
@@ -73,6 +75,55 @@
         padding: 0.7rem 0.9rem;
         font-size: 0.82rem;
         color: var(--muted);
+      }
+
+      .toolbox {
+        width: min(100%, 6.9in);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .toolbox button {
+        appearance: none;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.38rem 0.72rem;
+        background: #fff;
+        color: var(--accent);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .toolbox button.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .preflight-report {
+        width: min(100%, 6.9in);
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.94);
+        padding: 0.58rem 0.8rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+        display: none;
+      }
+
+      .preflight-report.ok {
+        display: block;
+        border-color: rgba(39, 95, 85, 0.35);
+        color: #1f5f56;
+      }
+
+      .preflight-report.warn {
+        display: block;
+        border-color: rgba(146, 86, 34, 0.35);
+        color: #7a4a22;
       }
 
       .page {
@@ -136,6 +187,10 @@
         letter-spacing: 0.18em;
         color: var(--gold);
         font-weight: 500;
+        align-self: flex-start;
+        padding: 0.08rem 0.4rem;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--page-accent) 12%, #fff 88%);
       }
 
       h1,
@@ -181,44 +236,22 @@
       }
 
       .midah-icon {
-        width: 0.58in;
-        height: 0.58in;
-        border-radius: 14px;
+        width: 0.46in;
+        height: 0.46in;
+        border-radius: 12px;
         border: 1px solid color-mix(in srgb, var(--page-accent) 45%, #ffffff 55%);
         background:
           linear-gradient(135deg, color-mix(in srgb, var(--page-accent) 20%, #ffffff 80%), rgba(255, 255, 255, 0.7));
         display: grid;
         place-items: center;
+        margin-top: -0.02in;
       }
 
       .midah-icon span {
-        display: block;
-        width: 0.22in;
-        height: 0.22in;
-        border-radius: 50%;
-        border: 2px solid color-mix(in srgb, var(--page-accent) 78%, #4d453d 22%);
-        position: relative;
-      }
-
-      .midah-icon span::before,
-      .midah-icon span::after {
-        content: "";
-        position: absolute;
-        inset: 50% auto auto 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 2px;
-      }
-
-      .midah-icon span::before {
-        width: 0.11in;
-        height: 2px;
-        background: color-mix(in srgb, var(--page-accent) 70%, #2f2f2f 30%);
-      }
-
-      .midah-icon span::after {
-        width: 2px;
-        height: 0.11in;
-        background: color-mix(in srgb, var(--page-accent) 70%, #2f2f2f 30%);
+        font-size: 1rem;
+        font-weight: 700;
+        color: color-mix(in srgb, var(--page-accent) 80%, #3e362f 20%);
+        line-height: 1;
       }
 
       .pasuk {
@@ -256,6 +289,18 @@
         gap: 0.03in;
       }
 
+      .block.action {
+        background: color-mix(in srgb, var(--page-accent) 10%, #fff 90%);
+        border-top: none;
+        border-left: 3px solid var(--page-accent);
+        border-radius: 9px;
+        padding: 0.08in;
+      }
+
+      .block.action .label::after {
+        content: " · Accion de hoy";
+      }
+
       .page[data-band="a"] {
         --page-accent: #2f3c88;
       }
@@ -271,10 +316,36 @@
       .page[data-band="d"] {
         --page-accent: #5b356f;
       }
+
+      body[data-ink="grayscale"] {
+        filter: grayscale(1);
+      }
+
+      body[data-ink="ink-saver"] .page {
+        box-shadow: none;
+        background: #fff;
+      }
+
+      body[data-ink="ink-saver"] .page::before {
+        display: none;
+      }
+
+      body[data-ink="ink-saver"] .pasuk,
+      body[data-ink="ink-saver"] .block.action,
+      body[data-ink="ink-saver"] .eyebrow {
+        background: #fff;
+      }
     </style>
   </head>
   <body>
     <div class="screen-note">Imprime en tamaño pocket cuadrado (6x6). Mantén este libro junto a tu sidur o en la mesa del comedor. Cada día, deja que una midá guíe tus conversaciones.</div>
+    <div class="toolbox" aria-label="Opciones de visualizacion">
+      <button class="active" data-ink-mode="full">Color</button>
+      <button data-ink-mode="grayscale">Grises</button>
+      <button data-ink-mode="ink-saver">Ahorro tinta</button>
+      <button id="runPreflight">Revisar layout</button>
+    </div>
+    <div class="preflight-report" id="preflightReport"></div>
     <section class="page cover">
       <span class="eyebrow">Libro pocket</span>
       <h1>Tomer Devorá</h1>
@@ -611,6 +682,7 @@
     <script>
       const qualityPages = Array.from(document.querySelectorAll(".page:not(.cover)"));
       const bands = ["a", "b", "c", "d"];
+      const symbols = ["✶", "◈", "☉", "❖", "✦", "◎", "◇", "✺", "✹", "⬟", "◉", "✸", "✷"];
 
       qualityPages.forEach((page, index) => {
         page.dataset.progress = `${index + 1}/13`;
@@ -622,9 +694,42 @@
         const icon = document.createElement("div");
         icon.className = "midah-icon";
         icon.setAttribute("aria-hidden", "true");
-        icon.innerHTML = "<span></span>";
+        icon.innerHTML = `<span>${symbols[index] || "✶"}</span>`;
 
         title.insertAdjacentElement("beforebegin", icon);
+
+        const actionBlock = Array.from(page.querySelectorAll(".block")).find((block) => {
+          const label = block.querySelector(".label");
+          return label && label.textContent.trim() === "En casa";
+        });
+        if (actionBlock) actionBlock.classList.add("action");
+      });
+
+      const modeButtons = Array.from(document.querySelectorAll("[data-ink-mode]"));
+      modeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const mode = button.dataset.inkMode;
+          document.body.dataset.ink = mode;
+          modeButtons.forEach((btn) => btn.classList.toggle("active", btn === button));
+        });
+      });
+
+      const report = document.getElementById("preflightReport");
+      const preflightBtn = document.getElementById("runPreflight");
+      preflightBtn.addEventListener("click", () => {
+        const problems = qualityPages
+          .map((page, index) => ({ page: index + 1, overflow: page.scrollHeight > page.clientHeight + 2 }))
+          .filter((item) => item.overflow)
+          .map((item) => item.page);
+
+        if (problems.length === 0) {
+          report.className = "preflight-report ok";
+          report.textContent = "Preflight OK: no hay desbordes visibles en las 13 paginas.";
+          return;
+        }
+
+        report.className = "preflight-report warn";
+        report.textContent = `Revisar paginas con posible desborde: ${problems.join(", ")}.`;
       });
     </script>
   </body>
