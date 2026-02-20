@@ -29,8 +29,8 @@
       }
 
       @page {
-        size: letter portrait;
-        margin: 0.45in;
+        size: 6in 6in;
+        margin: 0.3in;
       }
 
       @media print {
@@ -40,7 +40,7 @@
           padding: 0;
         }
         .spread {
-          padding: 0;
+          display: block;
           gap: 0;
           margin: 0;
           min-height: auto;
@@ -48,17 +48,28 @@
         .screen-note {
           display: none !important;
         }
-        .panel {
-          border-radius: 0;
+        .panel::after {
+          display: none;
+        }
+        .panel:not(.panel-deep),
+        .panel-deep:not([data-panel^="Profundiza"]) {
+          display: none !important;
+        }
+        .panel-deep[data-panel^="Profundiza"] {
+          border-radius: 14px;
           box-shadow: none;
-          border: none;
+          border: 1px solid var(--border);
           margin: 0;
           width: auto;
           min-height: auto;
+          padding: 0.28in;
+          gap: 0.1in;
+          break-inside: avoid;
+          page-break-inside: avoid;
           break-after: page;
           page-break-after: always;
         }
-        .panel:last-child {
+        .panel-deep[data-panel="Profundiza 13"] {
           break-after: auto;
           page-break-after: auto;
         }
@@ -98,6 +109,10 @@
         margin: 0 auto;
         page-break-inside: avoid;
         break-inside: avoid-page;
+      }
+
+      .panel::after {
+        display: none;
       }
 
       .panel::after {
@@ -237,13 +252,16 @@
       }
 
       .panel-deep {
-        padding: 0.48in 0.38in 0.44in;
-        gap: 0.22in;
+        width: min(100%, 6.4in);
+        min-height: 6.4in;
+        margin: 0 auto;
+        padding: 0.42in 0.34in;
+        gap: 0.12in;
       }
 
       .panel-deep h2 {
-        font-size: 1.32rem;
-        line-height: 1.1;
+        font-size: 1.2rem;
+        line-height: 1.05;
       }
 
       .panel-deep .hebrew {
@@ -253,21 +271,21 @@
       }
 
       .deep-quote {
-        font-size: 0.9rem;
-        line-height: 1.55;
+        font-size: 0.8rem;
+        line-height: 1.38;
         color: var(--muted);
         border-left: 3px solid var(--gold);
-        padding-left: 0.18in;
+        padding-left: 0.14in;
       }
 
       .deep-section {
         display: grid;
-        gap: 0.05in;
+        gap: 0.03in;
       }
 
       .deep-section h3 {
         font-family: "Work Sans", sans-serif;
-        font-size: 0.92rem;
+        font-size: 0.76rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--accent);
@@ -275,8 +293,8 @@
       }
 
       .deep-section p {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 0.76rem;
+        line-height: 1.34;
         color: var(--muted);
         margin: 0;
       }
