@@ -235,6 +235,41 @@
         text-align: center;
       }
 
+      .cover-art {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(47, 60, 136, 0.22);
+        background: linear-gradient(140deg, rgba(47, 60, 136, 0.12), rgba(189, 140, 59, 0.14));
+        padding: 0.08in;
+      }
+
+      .cover-art svg {
+        display: block;
+        width: 100%;
+        height: 1.45in;
+      }
+
+      .section-divider {
+        height: 1px;
+        border: none;
+        margin: 0.02in 0 0.01in;
+        background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--page-accent) 55%, #b69f86 45%), transparent);
+        position: relative;
+      }
+
+      .section-divider::after {
+        content: "";
+        position: absolute;
+        width: 0.11in;
+        height: 0.11in;
+        border-radius: 50%;
+        border: 1px solid color-mix(in srgb, var(--page-accent) 45%, #8a7762 55%);
+        background: #fff;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
       .midah-icon {
         width: 0.46in;
         height: 0.46in;
@@ -252,6 +287,23 @@
         font-weight: 700;
         color: color-mix(in srgb, var(--page-accent) 80%, #3e362f 20%);
         line-height: 1;
+      }
+
+      .midah-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .midah-icon .stroke {
+        fill: none;
+        stroke: color-mix(in srgb, var(--page-accent) 80%, #3e362f 20%);
+        stroke-width: 1.35;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .midah-icon .fill {
+        fill: color-mix(in srgb, var(--page-accent) 28%, #fff 72%);
       }
 
       .pasuk {
@@ -350,6 +402,23 @@
       <span class="eyebrow">Libro pocket</span>
       <h1>Tomer Devorá</h1>
       <h2>Trece reflejos para el corazón</h2>
+      <div class="cover-art" aria-hidden="true">
+        <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2f3c88" stop-opacity="0.95" />
+              <stop offset="100%" stop-color="#bd8c3b" stop-opacity="0.92" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="520" height="180" rx="16" fill="url(#g1)" opacity="0.12" />
+          <path d="M20 140 C90 70, 140 70, 210 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
+          <path d="M170 140 C240 45, 300 45, 360 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
+          <path d="M300 140 C360 78, 425 78, 500 140" fill="none" stroke="#2f3c88" stroke-opacity="0.34" stroke-width="3" />
+          <circle cx="260" cy="62" r="22" fill="#bd8c3b" fill-opacity="0.34" />
+          <circle cx="260" cy="62" r="12" fill="#2f3c88" fill-opacity="0.42" />
+          <path d="M248 62h24M260 50v24" stroke="#fff" stroke-opacity="0.8" stroke-width="1.8" />
+        </svg>
+      </div>
       <p class="hebrew">יָשׁוּב יְרַחֲמֵנוּ יִכְבֹּשׁ עֲוֹנֹתֵינוּ</p>
       <p>Mantén este libro junto a tu sidur o en la mesa del comedor. Cada día, deja que una midá guíe tus conversaciones.</p>
       <p>Refuá shelemá y berajá para Yaakov Shemaria.</p>
@@ -682,7 +751,24 @@
     <script>
       const qualityPages = Array.from(document.querySelectorAll(".page:not(.cover)"));
       const bands = ["a", "b", "c", "d"];
-      const symbols = ["✶", "◈", "☉", "❖", "✦", "◎", "◇", "✺", "✹", "⬟", "◉", "✸", "✷"];
+
+      const makeRosette = (index) => {
+        const petals = 6 + (index % 4);
+        const radius = 9;
+        const points = [];
+        for (let i = 0; i < petals * 2; i += 1) {
+          const angle = (Math.PI * i) / petals;
+          const r = i % 2 === 0 ? radius : radius * 0.55;
+          points.push(`${12 + Math.cos(angle) * r},${12 + Math.sin(angle) * r}`);
+        }
+        return `
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon class="fill" points="${points.join(" ")}"></polygon>
+            <polygon class="stroke" points="${points.join(" ")}"></polygon>
+            <circle class="stroke" cx="12" cy="12" r="2.6"></circle>
+          </svg>
+        `;
+      };
 
       qualityPages.forEach((page, index) => {
         page.dataset.progress = `${index + 1}/13`;
@@ -694,9 +780,13 @@
         const icon = document.createElement("div");
         icon.className = "midah-icon";
         icon.setAttribute("aria-hidden", "true");
-        icon.innerHTML = `<span>${symbols[index] || "✶"}</span>`;
+        icon.innerHTML = makeRosette(index);
 
         title.insertAdjacentElement("beforebegin", icon);
+
+        const divider = document.createElement("hr");
+        divider.className = "section-divider";
+        title.insertAdjacentElement("afterend", divider);
 
         const actionBlock = Array.from(page.querySelectorAll(".block")).find((block) => {
           const label = block.querySelector(".label");
